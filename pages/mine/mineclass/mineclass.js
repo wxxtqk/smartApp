@@ -1,37 +1,17 @@
-//获取应用实例
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    hasUserInfo: false,
+    
   },
-  // 点击获取用户的信息
-  bindViewTap: function() {
-    console.log(11111)
-  },
-  // 跳转到不同的页面
-  toPage: function(event) {
-    let url = event.currentTarget.dataset.page
-    wx.navigateTo({
-      url
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo) {
-      this.setData({
-        // 设置用户信息
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    }
+    
   },
 
   /**
