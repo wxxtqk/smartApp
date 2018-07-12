@@ -1,12 +1,33 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "imgs/home.png",
+      "selectedIconPath": "imgs/home_active.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "教学计划",
+      "iconPath": "imgs/plan.png",
+      "selectedIconPath": "imgs/plan_active.png"
+    },{
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "imgs/mine.png",
+      "selectedIconPath": "imgs/mine_active.png"
+    }],
+    "selectedColor": "#499FE4"
   }
 }
