@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/plan/plan",
     "pages/mine/mine",
     "pages/detail/detail"
   ],
@@ -18,7 +18,7 @@
       "iconPath": "imgs/home.png",
       "selectedIconPath": "imgs/home_active.png"
     }, {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/plan/plan",
       "text": "教学计划",
       "iconPath": "imgs/plan.png",
       "selectedIconPath": "imgs/plan_active.png"
