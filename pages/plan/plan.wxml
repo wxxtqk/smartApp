@@ -1,0 +1,32 @@
+<!--logs.wxml-->
+<view class="plan-list">
+  <view class="wait-study">待学习课程</view>
+  <view class="curriculum-plan">
+     <view class="curriculum">
+      <view class="curriculum-package flex-wrp">
+        <view class="flex-item">
+          <image class="curriculum-image" src="{{}}" mode="cover"></image>
+        </view>
+        <view class="flex-item curriculum-title-package">
+          <scroll-view class="scroll-view_H" scroll-y style="height:80rpx; margin-bottom:30rpx;">
+            <text class="curriculum-title">热点经济现象解析解析解析</text>
+          </scroll-view>
+          <text class="curriculum-name">推荐人：曹老师</text>
+        </view>
+        <view class="flex-item">
+           <!-- <view class="goStudy" data-study="goStudy" bindtap="goStudy">去学习</view>  -->
+           <view class="planStudyProgress">80%</view>
+           <text class="planStudyProgress-title">已学习</text>
+        </view>
+      </view>
+    </view> 
+    <!-- <view class="section">
+      <view class="section__title">flex-direction: row</view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item bc_green">1</view>
+        <view class="flex-item bc_red">2</view>
+        <view class="flex-item bc_blue">3</view>
+      </view>
+    </view> -->
+  </view>            
+</view>
