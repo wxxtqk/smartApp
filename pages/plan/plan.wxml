@@ -8,13 +8,15 @@
           <image class="curriculum-image" src="{{}}" mode="cover"></image>
         </view>
         <view class="flex-item curriculum-title-package">
-          <scroll-view class="scroll-view_H" scroll-y style="max-height:80rpx;">
-            <text class="curriculum-title">热点经济现象解析解析解析解析解析解析济现象解析解析解析解析解析解析济现象解析解析解析解析解析解析</text>
+          <scroll-view class="scroll-view_H" scroll-y style="height:80rpx; margin-bottom:30rpx;">
+            <text class="curriculum-title">热点经济现象解析解析解析</text>
           </scroll-view>
           <text class="curriculum-name">推荐人：曹老师</text>
         </view>
         <view class="flex-item">
-          <view class="goStudy" data-hi="goStudy" bindtap="goStudy">去学习</view>
+           <!-- <view class="goStudy" data-study="goStudy" bindtap="goStudy">去学习</view>  -->
+           <view class="planStudyProgress">80%</view>
+           <text class="planStudyProgress-title">已学习</text>
         </view>
       </view>
     </view> 
