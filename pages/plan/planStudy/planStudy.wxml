@@ -1,0 +1,22 @@
+<view>
+  <scroll-view scroll-y style="width: 100%">
+    <view class="details-package">
+      <view class="details-list">
+        <view class='time-state'>
+          <view class='reader-line'>
+            <image style="width: 39rpx; height: 39rpx;" mode="aspectFit" src="{{readSrc}}"></image>
+            <view></view>
+          </view>
+          <view class="day-time-package">
+            <view>07-13</view>
+            <view class='read-time'>16:46</view>
+          </view>
+        </view>
+        <view class='plan-title'>
+          经营基础课程名字名字名字主经营 课程14节 练习题2节
+          <text class='referee'>曹老师</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

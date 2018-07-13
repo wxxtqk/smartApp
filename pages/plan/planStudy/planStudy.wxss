@@ -1,0 +1,39 @@
+
+.details-package{
+  padding: 65rpx 48rpx;
+}
+.details-list {
+  display:flex;
+  /* justify-content:space-between; */
+  padding-bottom:60rpx;
+}
+.time-state {
+  display:flex;
+  /* justify-content:space-between; */
+  width: 200rpx;
+}
+/* 阅读的展示线  */
+.reader-line {
+  display: flex;
+  margin:auto 0;
+  flex-direction:column;
+}
+.day-time-package {
+  /* padding:0 50rpx 0 23rpx; */
+  font-size:32rpx;
+  padding-left:23rpx;
+
+}
+.read-time {
+  color:rgb(141,141,141);
+}
+
+.plan-title {
+  /* width:282px; */
+  flex: 1;
+  font-size: 34rpx
+}
+.referee {
+  font-size: 32rpx;
+  color:rgb(141,141,141);
+}

@@ -7,6 +7,7 @@ var host = "https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159"
 var planConfig = {
   host,
   plan_study_list: `${host}/studyPlanList`,
+  plan_study_details: `${host}/detailsList`,
 }
 
 // 对外把对象planConfig返回
