@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/mine/mineclass/mineclass",
-    "pages/plan/planStudy/planStudy"
+    "pages/plan/planStudy/planStudy",
+    "pages/mine/personal/personal"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -43,9 +43,11 @@
 }
 .mine-items{
   position: relative;
-  top: 140rpx;
+  top: 250rpx;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 10rpx
 }
 .mine-item{
   display: flex;

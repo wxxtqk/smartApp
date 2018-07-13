@@ -1,0 +1,55 @@
+<scroll-view class="personal-container" scroll-y>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="personal-header personal-wrapper">
+      <view class="personal-item">
+        <view class="personal-item-l">昵称</view>
+        <view class="personal-item-r">{{userInfo.nickName}}</view>
+      </view>
+      <view class="personal-item" style="border:none">
+        <view class="personal-item-l">头像</view>
+        <view class="personal-item-r">
+          <image src="{{userInfo.avatarUrl}}"></image> 
+        </view>
+      </view>
+    </view>
+    <view class="personal-header personal-wrapper">
+      <view class="personal-item">
+        <view class="personal-item-l">姓名</view>
+        <input class="personal-item-r" name="name" placeholder="请输入姓名" bindinput="name"/>
+      </view>
+      <view class="personal-item">
+        <view class="personal-item-l">出生日期</view>
+        <picker class="personal-item-r" name="date" mode="date" value='{{date}}' start="2015-09-01" end="2017-09-01" bindchange="bindPickerChange">
+          <view>{{date}}</view>
+        </picker>
+      </view>
+      <view class="personal-item">
+        <view class="personal-item-l">学历</view>
+        <input class="personal-item-r" name="edu" placeholder="请输入学历" bindinput="edu" />
+      </view>
+      <view class="personal-item" >
+        <view class="personal-item-l">手机号</view>
+        <input class="personal-item-r" name="phone" placeholder="请输入手机号" bindinput="phone"/>
+      </view>
+
+
+
+      <view class="personal-item">
+        <view class="personal-item-l">所在企业</view>
+        <input class="personal-item-r" name="company" placeholder="请输入企业" bindinput="company"/>
+      </view>
+      <view class="personal-item">
+        <view class="personal-item-l">联系邮箱</view>
+        <input class="personal-item-r" name="email" placeholder="请输入邮箱" bindinput="email"/>
+      </view>
+      <view class="personal-item" style="border:none">
+        <view class="personal-item-l">联系地址</view>
+        <input class="personal-item-r" name="address" placeholder="请输入联系地址" bindinput="address"/>
+      </view>
+
+    </view>
+    <view class="personal-btn-area btn-area">
+      <button formType="submit" class="personal-btn">保存</button>
+    </view>
+  </form>
+</scroll-view>

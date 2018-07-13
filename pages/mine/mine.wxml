@@ -2,10 +2,10 @@
   <view class='mine-header'>
     <view class='mine-header-wrapper'>
       <image wx:if="{{!hasUserInfo}}" mode="cover" src='../../imgs/avatar.png' class='mine-avatar'></image>
-      <image wx:else mode="cover" src="{{userInfo.avatarUrl}}" class='mine-avatar'></image>
+      <image wx:else mode="cover" src="{{userInfo.avatarUrl}}" class='mine-avatar' data-page='personal/personal' bindtap="toPage"></image>
     </view>
   </view>
-  <text wx:if="{{!hasUserInfo}}" class='mine-btn-login' bindtap="bindViewTap">点击登录</text>
+  <button wx:if="{{!hasUserInfo}}" class='mine-btn-login' open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击登录</button>
   <text wx:else class='mine-btn-login mine-btn-nickname'>{{userInfo.nickName}}</text>
   <view class='mine-items'>
     <view class='mine-item' data-page='mineclass/mineclass' bindtap="toPage">
