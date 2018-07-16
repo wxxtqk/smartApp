@@ -18,12 +18,17 @@
       <view class='mine-item-title'>我的收藏</view>
       <view class='mine-item-right'>></view>
     </view>
-    <view class='mine-item' data-page='mineclass/mineclass' bindtap="toPage">
+    <view class='mine-item' data-page='record/record' bindtap="toPage">
       <image class='mine-item-left' src="../../imgs/record.png"></image> 
       <view class='mine-item-title'>浏览记录</view>
       <view class='mine-item-right'>></view>
     </view>
-    <view class='mine-item' data-page='mineclass/mineclass' bindtap="toPage">
+    <view class='mine-item' data-page='paylog/paylog' bindtap="toPage">
+      <image class='mine-item-left' src="../../imgs/company.png"></image> 
+      <view class='mine-item-title'>购买记录</view>
+      <view class='mine-item-right'>></view>
+    </view>
+    <view class='mine-item' data-page='company/company' bindtap="toPage">
       <image class='mine-item-left' src="../../imgs/company.png"></image> 
       <view class='mine-item-title'>我的企业</view>
       <view class='mine-item-right'>></view>

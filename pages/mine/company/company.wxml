@@ -1,0 +1,59 @@
+<scroll-view class="company-container" scroll-y>
+  <view class="wrapper">
+    <view class="company-header">
+      <view class="company-tabs {{active==='1'?'active':''}}" data-active='1' bindtap='changTab'>
+        企业信息
+      </view>
+      <view class="company-tabs {{active==='2'?'active':''}}" data-active='2' bindtap='changTab'>
+        企业产品
+      </view>
+    </view>
+    <!-- 企业信息 -->
+    <view wx:if="{{active==='1'}}" class="company-info">
+      <form bindsubmit="formSubmit">
+        <view class="info-item-h">
+          <view class="info-h">企业名称</view>
+          <input placeholder="请填写企业名称" class="info-text" />
+        </view>
+        <view class="info-item-v">
+          <view class="info-v">企业简介</view>
+          <input placeholder="请简单描述您的企业" class="info-v-text" />
+        </view>
+        <view class="info-item-v">
+          <view class="info-v">企业图片(仅限3张)</view>
+          <view placeholder="请简单描述您的企业" class="info-v-text info-img">
+            <view class="info-img-list" wx:for="{{imgUrl}}">
+              <image src="{{item}}" mode="cover"/>
+              <view class="info-img-close"></view>
+            </view>
+            <text class="info-img-add" bindtap='chooseImg' wx:if="{{imgUrl.length<3}}">+</text>
+          </view>
+        </view>
+        <!-- 中间间隔部分 -->
+        <view style="background-color: rgb(243, 243, 243);height:20rpx"></view>
+
+        <view class="info-item-h">
+          <view class="info-h">合作伙伴</view>
+          <input placeholder="请填写您的合作伙伴" class="info-text" />
+        </view>
+        <view class="info-item-h">
+          <view class="info-h">联系电话</view>
+          <input placeholder="请填写联系电话" class="info-text" />
+        </view>
+        <view class="info-item-h">
+          <view class="info-h">联系邮箱</view>
+          <input placeholder="请填写联系邮箱" class="info-text" />
+        </view>
+        <view class="info-item-h">
+          <view class="info-h">公司地址</view>
+          <input placeholder="请填写公司地址" class="info-text" />
+        </view>
+        <view class="personal-btn-area btn-area">
+          <button formType="submit" class="personal-btn">保存</button>
+        </view>
+      </form>
+    </view>
+    <!-- 企业产品 -->
+    <view wx:elif="{{active==='2'}}">企产品</view>
+  </view>
+</scroll-view>

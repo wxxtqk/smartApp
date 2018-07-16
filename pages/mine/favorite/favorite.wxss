@@ -24,7 +24,6 @@
     width:181rpx;
     height:146rpx;
     border-radius: 6rpx;
-    background-color: red;
     margin-right: 14rpx;
 }
 .favorite-item{
@@ -39,4 +38,5 @@
 .favorite-date{
     height: 46rpx;
     line-height: 46rpx;
+    font-size: 26rpx;
 }

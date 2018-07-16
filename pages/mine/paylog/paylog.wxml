@@ -1,0 +1,11 @@
+<scroll-view class="favorite-container" scroll-y>
+  <view class="favorite-list">
+    <view class="favorite-item">
+      <view class="favorite-desc">热点经济现象解析</view>
+      <view class="favorite-date">2018-6-12 13:12</view>
+    </view>
+    <view class="paylog-text">
+        ￥99
+    </view>
+  </view>
+</scroll-view>

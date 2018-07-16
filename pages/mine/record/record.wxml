@@ -3,8 +3,7 @@
     <image class="favorite-img"  src="{{item.url}}"></image> 
     <view class="favorite-item">
       <view class="favorite-desc">{{item.title}}</view>
-      <view class="favorite-name">{{item.teacher}}</view>
-      <view class="favorite-date">{{item.time}}</view>
+      <view class="favorite-date">{{item.count}}多次学习</view>
     </view>
   </view>
 </scroll-view>

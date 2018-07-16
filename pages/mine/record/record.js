@@ -1,4 +1,4 @@
-import { fetchClass } from '../../../api/mine.js'
+import { fetchRecord } from '../../../api/mine.js'
 const OK_CODE = '200'
 Page({
 
@@ -18,7 +18,7 @@ Page({
       title: '加载中',
       mask: true
     })
-    fetchClass().then(res => {
+    fetchRecord().then(res => {
       res = res.data
       if (res.state === OK_CODE) {
         this.setData({

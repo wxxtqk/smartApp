@@ -33,7 +33,7 @@
 }
 .favorite-desc{
     width: 100%;
-    flex: 1
+    flex: 1;
 }
 .favorite-date{
     height: 46rpx;

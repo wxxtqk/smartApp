@@ -15,3 +15,17 @@ export function fetchFavorite() {
         method: 'POST'
     })
 }
+// 获取我的课程
+export function fetchClass() {
+    return fetch({
+        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/mineclass',
+        method: 'POST'
+    })
+}
+// 获取浏览记录
+export function fetchRecord() {
+    return fetch({
+        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/record',
+        method: 'POST'
+    })
+}
