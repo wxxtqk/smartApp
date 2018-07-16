@@ -1,5 +1,5 @@
 const app = getApp()
-import { personalInfo } from '../../../config/mine.js'
+import { personalInfo } from '../../../api/mine.js'
 const OK_CODE = '200'
 Page({
 
