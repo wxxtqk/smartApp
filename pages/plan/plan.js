@@ -1,6 +1,5 @@
-//logs.js
-const util = require('../../utils/util.js');
-const plan_study_list = require('../../config/planConfig.js').plan_study_list;
+//plan.js
+import { plan_study_list } from '../../config/planConfig.js'
 const SUCCESS_OK = "200";
 const app = getApp()
 Page({
@@ -23,23 +22,17 @@ Page({
   },
   // 请求学习课程列表的接口
   gitPlanStudy: function() {
-    var that = this;
-    wx.request({
-      url: plan_study_list, //小程序目前发起request请求，必须是https协议
-      // 成功
-      success:function(res) {
-        console.log(res);
-        res = res.data;
-        if (res.state === SUCCESS_OK ) {
-          that.setData({
-            planStudyList: res.data.list
-          })
-        }
-      },
-      // 失败
-      fail:function(res) {
-        console.log(res)
+    plan_study_list().then(res => {
+      res = res.data
+      console.info(res)
+      if (res.state === SUCCESS_OK) {
+        this.setData({
+          planStudyList: res.data.list
+        })
       }
+    })
+    .catch(_ => {
+      console.log('连接数据库失败')
     })
   },
   /**
