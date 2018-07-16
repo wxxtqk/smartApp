@@ -1,20 +1,19 @@
 <view>
   <scroll-view scroll-y style="width: 100%">
     <view class="details-package">
-      <view class="details-list">
+      <view class="details-list" wx:for='{{detailsList}}' wx:key='*this' wx:for-item='detail' wx:for-index='index'>
         <view class='time-state'>
-          <view class='reader-line'>
-            <image style="width: 39rpx; height: 39rpx;" mode="aspectFit" src="{{readSrc}}"></image>
-            <view></view>
+          <view class='reader-line-package'>
+            <image style="width: 39rpx; height: 39rpx;" mode="aspectFit" src="{{detail.subjectDay==''?unreadSrc:readSrc}}"></image>
+            <view class='reader-line' hidden='{{index==detailsList.length-1?true:false}}'><text></text></view>
           </view>
           <view class="day-time-package">
-            <view>07-13</view>
-            <view class='read-time'>16:46</view>
+            <view>{{detail.subjectDay}}</view>
+            <view class='read-time'>{{detail.subjectTime}}</view>
           </view>
         </view>
-        <view class='plan-title'>
-          经营基础课程名字名字名字主经营 课程14节 练习题2节
-          <text class='referee'>曹老师</text>
+        <view class='plan-title'>{{detail.subjectTitle}}
+          <text class='referee'>{{detail.subjectName}}</text>
         </view>
       </view>
     </view>
