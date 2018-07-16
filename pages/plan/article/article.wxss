@@ -1,0 +1,65 @@
+
+.article-package {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+  /* padding: 0 20rpx; */
+  /* background-color: rgb(239, 239, 244); */
+ 
+}
+.article-package-padding {
+    padding:60rpx 48rpx;  
+}
+/* 文章标题  */
+.title-name {
+  font-size: 42rpx;
+  font-weight: bold;
+  padding-bottom: 62rpx;
+}
+.article-people-package {
+  display: flex;
+  /* 对齐方式，两端对齐  */
+  justify-content:space-between; 
+}
+.author-padding {
+  padding-bottom: 62rpx;
+}
+.margin-line-content {
+  margin: auto 0;
+}
+/*授课人  */
+.author {
+  padding-left: 40rpx;
+  color:rgb(141, 141, 141);
+}
+.study-number {
+  padding-right: 40rpx;
+  color:rgb(141, 141, 141);
+}
+/*收藏  */
+.article-lick {
+  position: relative;
+  left:calc(50% - 146rpx);
+  width:292rpx;
+  height:90rpx;
+  margin-top: 50rpx;
+  display: flex;
+  /*居中对齐  */
+  justify-content:center; 
+
+}
+.likebg-src {
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:-1;
+  border-radius:90rpx;
+}
+.lick-title {
+  color: #fff;
+}

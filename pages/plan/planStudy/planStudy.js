@@ -20,10 +20,25 @@ Page({
       title: that.data.studyList.planTitle
     })
   },
+  // 跳转到其他页面
+  topage: function(event) {
+    console.info(event)
+    let url = event.currentTarget.dataset.page
+    let articleList = event.currentTarget.dataset.article
+    // 跳转页面传值
+    wx.navigateTo({
+      url: url + '?articleList=' + JSON.stringify(articleList)
+    })
+  },
   // 获取课程详情列表
   _gitDetailsList: function () {
     console.log(this.data.studyList.planId)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     planDetailsList(this.data.studyList.planId).then(res => {
+      wx.hideLoading()
       res = res.data
       console.log(res)
       if ( res.state === SUCCESS_OK ) {
@@ -33,6 +48,13 @@ Page({
         console.info(this.data.detailsList)
       }
     })
+    .catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    }) 
   },
 
   /**

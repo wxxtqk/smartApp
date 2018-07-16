@@ -22,7 +22,12 @@ Page({
   },
   // 请求学习课程列表的接口
   gitPlanStudy: function() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     plan_study_list().then(res => {
+      wx.hideLoading()
       res = res.data
       console.info(res)
       if (res.state === SUCCESS_OK) {
@@ -30,10 +35,13 @@ Page({
           planStudyList: res.data.list
         })
       }
-    })
-    .catch(_ => {
-      console.log('连接数据库失败')
-    })
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    }) 
   },
   /**
    * 生命周期函数--监听页面加载
