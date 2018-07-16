@@ -1,0 +1,37 @@
+<view>
+  <view class='article-package'>
+    <scroll-view scroll-y style="height:100%;">
+    <view class="article-package-padding">
+      <view class="title-name">{{articleTitle}}</view>
+      <view class='article-people-package author-padding'>
+        <view class='article-people-package'>
+          <view>
+            <image style="width: 80rpx; height: 80rpx;" mode="aspectFit" src="{{authorSrc}}"></image>
+          </view>
+          <view class='margin-line-content author'>曹老师</view>
+        </view>
+        <view class='margin-line-content study-number'>653次学习</view>
+      </view>
+      <view class="article-content">
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+        <view>{{articleTitle}}</view>
+      </view>
+      <view class="article-lick">
+          <image class='likebg-src' mode="aspectFit" src="{{likebg}}"></image>
+        <view>
+          <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{lickSrc}}"></image>
+        </view>
+        <view class='margin-line-content lick-title'><text>收藏</text></view>
+      </view>
+    </view>
+    </scroll-view>
+  </view>
+</view>

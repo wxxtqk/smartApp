@@ -12,7 +12,8 @@
             <view class='read-time'>{{detail.subjectTime}}</view>
           </view>
         </view>
-        <view class='plan-title'>{{detail.subjectTitle}}
+        <view class='plan-title'>
+          <text data-page='../article/article' data-article='{{detail}}' bindtap='topage'>{{detail.subjectTitle}}</text>
           <text class='referee'>{{detail.subjectName}}</text>
         </view>
       </view>
