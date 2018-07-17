@@ -45,7 +45,7 @@
   left:calc(50% - 146rpx);
   width:292rpx;
   height:90rpx;
-  margin-top: 50rpx;
+  margin: 50rpx 0 88rpx 0;
   display: flex;
   /*居中对齐  */
   justify-content:center; 
@@ -62,4 +62,17 @@
 }
 .lick-title {
   color: #fff;
+}
+/* 推荐课程  */
+.proposal-title {
+  border-left: 4rpx solid rgb(9,76,197);
+  padding-left: 16rpx;
+  color: rgb(141, 141, 141);
+  margin-bottom: 26rpx;
+}
+.proposal-title-line {
+  border-bottom:2rpx solid rgb(238,238,238);
+}
+.curriculum-item{
+  padding: 26rpx 0;
 }

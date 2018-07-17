@@ -13,7 +13,8 @@
           </view>
         </view>
         <view class='plan-title'>
-          <text data-page='../article/article' data-article='{{detail}}' bindtap='topage'>{{detail.subjectTitle}}</text>
+          <!-- <text data-page='../article/article' data-article='{{detail}}' bindtap='topage'>{{detail.subjectTitle}}</text> -->
+          <text data-pageone='../article/article' data-pagetwo='../articleVoice/voice' data-article='{{detail}}' bindtap='topage'>{{detail.subjectTitle}}</text>
           <text class='referee'>{{detail.subjectName}}</text>
         </view>
       </view>

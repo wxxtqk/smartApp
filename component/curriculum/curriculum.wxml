@@ -1,3 +1,14 @@
-<view>
-  <view>组件</view>
-</view>
+ <template name='curriculum'>
+   <view class='item flex'>
+   <view class='flex flex-item'>
+    <view class="title-imag"></view>
+    <view class='flex-item curriculum-title column'>
+      <view class='text-hidden'>如何快速提升职场形象如何快速提升职场形象</view>
+      <view class="curriculum-people">温老师</view>
+      <view class='curriculum-study flex-end flex-item'>653次学习</view>
+    </view>
+   </view>
+   <view class="price flex-end">￥199</view>
+    <!-- <view>{{item.id}},{{item.name}}</view> -->
+  </view>
+</template>

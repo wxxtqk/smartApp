@@ -7,6 +7,7 @@
     "pages/mine/mineclass/mineclass",
     "pages/plan/planStudy/planStudy",
     "pages/plan/article/article",
+    "pages/plan/articleVoice/voice",
     "pages/mine/personal/personal",
     "pages/mine/favorite/favorite",
     "pages/mine/record/record",

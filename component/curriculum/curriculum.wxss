@@ -1,0 +1,52 @@
+.flex {
+  display: flex;
+}
+.flex-item{
+  flex:1;
+}
+.flex-space-between {
+  display: flex;
+  /* 对齐方式，两端对齐  */
+  justify-content:space-between;
+}
+/*对齐方式： 底部对齐  */
+.flex-end {
+  display:flex;
+  align-items:flex-end;
+}
+/*垂直布局  */
+.column {
+  display:flex;
+  flex-direction:column;
+}
+/*文字溢出隐藏  */
+.text-hidden {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+/*图片  */
+.title-imag{
+  width:181rpx;
+  height:146rpx;
+  border-radius:6rpx;
+  background-color:#f4f4f4;
+}
+/*标题，授课人，学习次数  */
+.curriculum-title{
+  font-size: 32rpx;
+  padding-left:20rpx;
+  width:374rpx;
+}
+.curriculum-people{
+  color:rgb(141,141,141);
+}
+.curriculum-study{
+  color:rgb(184,184,184);
+}
+/*价格  */
+.price {
+  width: 100rpx;
+  color: rgb(73,159,228);
+  font-size: 32rpx;
+}

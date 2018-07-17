@@ -1,4 +1,5 @@
 
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -6,6 +7,15 @@ Page({
   data: {
     articleList: [],
     articleTitle: '',
+    array: [
+      { id: 11, name: "zz" },
+      { id: 22, name: "xx" },
+      { id: 33, name: "cc" },
+      { id: 44, name: "vv" },
+      { id: 55, name: "bb" },
+      { id: 66, name: "nn" }
+    ],
+
     authorSrc: '../../../imgs/author.png',
     lickSrc: '../../../imgs/like.png',
     likebg: '../../../imgs/likebg.png',
@@ -49,7 +59,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // this.curriculum = this.selectComponent('.curriculum')
+    // console.log(this.selectComponent('#curriculum'))
+    // console.log(this.selectComponent())
   },
 
   /**
