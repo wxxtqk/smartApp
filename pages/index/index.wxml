@@ -1,3 +1,5 @@
+<import src="../../component/curriculum/curriculum.wxml" />
+<import src="../../component/recommend/recommend.wxml" />
 <view class="home-container">
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -33,7 +35,11 @@
       <view class="content-h-r">查看跟多>></view>
     </view>
     <!-- 主体内容 -->
-    <view class="content-lists"></view>
+    <view class="content-lists">
+      <view wx:for="{{hot}}">
+        <template is="curriculum" data="{{item}}"></template>
+      </view>
+    </view>
   </view>
   <!-- 推荐课程 -->
   <view class="content-wraper">
@@ -42,14 +48,26 @@
       <view class="content-h-r">查看跟多>></view>
     </view>
     <!-- 主体内容 -->
+    <view class="content-lists">
+      <view class="recommend-wraper">
+        <view class="recommend" wx:for="{{recommend}}">
+          <template is="recommend" data="{{item}}"></template>
+        </view>
+      </view>
+    </view>
   </view>
   <!-- 免费专区 -->
   <view class="content-wraper">
     <view class="content-header">
-      <view class="content-h-l">免费专区     </view>
+      <view class="content-h-l">免费专区</view>
       <view class="content-h-r">查看跟多>></view>
     </view>
     <!-- 主体内容 -->
+    <view class="content-lists">
+      <view wx:for="{{free}}">
+        <template is="curriculum" data="{{item}}"></template>
+      </view>
+    </view>
   </view>
   <!-- 企业风采展示 -->
   <view class="content-wraper">

@@ -1,0 +1,12 @@
+<template name="recommend">
+  <view class="r-container">
+    <view class="r-img">
+      <image src="{{item.proposalImg}}" />
+    </view>
+    <view class="r-title">{{item.proposalTitle}}</view>
+    <view class="r-bottom">
+      <view class="r-count">{{item.studyNumber}}次学习</view>
+      <view class="r-price">{{item.price}}</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,33 @@
+.r-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+.r-title{
+    margin-top: 10rpx;
+}
+.r-img{
+    width: 100%;
+    padding-top: 80%;
+    position: relative;
+}
+.r-img image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.r-bottom{
+    display: flex;
+    margin-top: 10rpx;
+}
+.r-count{
+    flex: 1
+}
+.r-price{
+    color:rgb(73,159,228);
+}

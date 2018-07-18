@@ -4,6 +4,8 @@ Page({
   data: {
     imgUrls: [],
     hot: [],
+    free: [],
+    recommend: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -26,7 +28,9 @@ Page({
       if (res.state === OK_CODE) {
         that.setData({
           imgUrls: res.data.imgUrls,
-          hot: res.data.hot
+          hot: res.data.hot,
+          free: res.data.free,
+          recommend: res.data.recommend
         })
         console.log(res.data)
       } else {
