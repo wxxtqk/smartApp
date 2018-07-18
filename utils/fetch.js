@@ -8,7 +8,7 @@ function fetch({url, data = {}, method = 'POST'}) {
       method,
       header: {
         openid: app.globalData.userOpen.openid ? app.globalData.userOpen.openid : '',
-        session_key: app.globalData.userOpen.session_key ? app.globalData.userOpen.session_key : ''
+        sessionkey: app.globalData.userOpen['session_key'] ? app.globalData.userOpen['session_key'] : ''
       }, // 设置请求的 header
       success: function (res) {
         // success
