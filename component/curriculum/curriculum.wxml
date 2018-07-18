@@ -1,14 +1,16 @@
+<!--课程模板 推荐课程  -->
  <template name='curriculum'>
-   <view class='item flex'>
+   <view class='item flex' style='padding-bottom: 54rpx;'>
    <view class='flex flex-item'>
-    <view class="title-imag"></view>
+    <view class="title-imag">
+      <image class="curriculum-image" src="{{item.proposalImg}}" mode="cover" style="width: 100%;height: 100%;border-radius:6rpx;"></image>
+    </view>
     <view class='flex-item curriculum-title column'>
-      <view class='text-hidden'>如何快速提升职场形象如何快速提升职场形象</view>
-      <view class="curriculum-people">温老师</view>
-      <view class='curriculum-study flex-end flex-item'>653次学习</view>
+       <view class='text-hidden'>{{item.proposalTitle}}</view> 
+      <view class="curriculum-people">{{item.Referee}}</view>
+      <view class='curriculum-study flex-end flex-item'>{{item.studyNumber}}次学习</view>
     </view>
    </view>
-   <view class="price flex-end">￥199</view>
-    <!-- <view>{{item.id}},{{item.name}}</view> -->
+   <view class="price flex-end">{{item.price}}</view>
   </view>
 </template>
