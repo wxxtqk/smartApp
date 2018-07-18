@@ -26,3 +26,15 @@ export function planDetailsList(planId) {
     data
   })
 }
+// 文章内容展示列表
+export function curriculumList(id) {
+  let url = `${host}/curriculumList`
+  let data= {
+    subjectId: id
+  }
+  return fetch({
+    url,
+    method: 'POST',
+    data
+  })
+}

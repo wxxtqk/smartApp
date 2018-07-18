@@ -1,46 +1,47 @@
 <import src="../../../component/curriculum/curriculum.wxml"/>
+ <import src="../../../wxParse/wxParse.wxml"/> 
 <view>
   <view class='article-package'>
     <scroll-view scroll-y style="height:100%;">
     <view class="article-package-padding">
-      <view class="title-name">{{articleTitle}}</view>
-      <view class='article-people-package author-padding'>
-        <view class='article-people-package'>
-          <view>
-            <image style="width: 80rpx; height: 80rpx;" mode="aspectFit" src="{{authorSrc}}"></image>
+      <view>
+        <!-- <view class="title-name">{{articleTitle}}</view> -->
+         <view class="title-name">{{curriculum.proposalTitle}}</view> 
+        <view class='article-people-package author-padding'>
+          <view class='article-people-package'>
+            <view>
+              <image style="width: 80rpx; height: 80rpx;" mode="aspectFit" src="{{authorSrc}}"></image>
+            </view>
+            <view class='margin-line-content author'>{{curriculum.Referee}}</view>
           </view>
-          <view class='margin-line-content author'>曹老师</view>
+          <view class='margin-line-content study-number'>{{curriculum.studyNumber}}次学习</view>
         </view>
-        <view class='margin-line-content study-number'>653次学习</view>
-      </view>
-      <view class="article-content">
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-        <view>{{articleTitle}}</view>
-      </view>
-      <view class="article-lick">
-          <image class='likebg-src' mode="aspectFit" src="{{likebg}}"></image>
-        <view>
-          <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{lickSrc}}"></image>
+        <view class="article-content">
+           <!-- <view>{{articleTitle}}</view>{{curriculum.curriculumContent}}   -->
+           <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/> 
         </view>
-        <view class='margin-line-content lick-title'><text>收藏</text></view>
+        <view class="article-lick">
+            <image class='likebg-src' mode="aspectFit" src="{{likebg}}"></image>
+          <view>
+            <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{lickSrc}}"></image>
+          </view>
+          <view class='margin-line-content lick-title'><text>收藏</text></view>
+        </view>
       </view>
+
       <view class="proposal">
         <view class="proposal-title">推荐课程</view>
         <view class="proposal-title-line"></view>
         <view class="curriculum-item">
-          <!-- <template is="curriculum" wx:for="{{array}}" data="{{item}}"></template> -->
-           <template is="curriculum"></template>
+           <!-- <template is="curriculum" wx:for="{{proposal}}" data="{{item}}"></template> -->
+          <view wx:for="{{proposal}}">
+            <view class="proposal-item" bindtap='itemclick' data-item='{{item}}'>
+              <template is="curriculum" data="{{item}}"></template>
+            </view>
+          </view> 
         </view>
-        
       </view>
+
     </view>
     </scroll-view>
   </view>
