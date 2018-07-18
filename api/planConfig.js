@@ -8,7 +8,7 @@ var host = "https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159"
 // 教学计划列表
 export function plan_study_list(data) {
   // let data = {
-    // openId: id
+  //   openId: id
   // }
   let url = `${host}/studyPlanList`
   // let url = 'https://134.175.27.67/jeesite-master/a/plan/list'

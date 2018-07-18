@@ -1,5 +1,5 @@
 //plan.js
-import { plan_study_list } from '../../config/planConfig.js'
+import { plan_study_list } from '../../api/planConfig.js'
 const SUCCESS_OK = "200";
 const app = getApp()
 Page({
@@ -26,9 +26,9 @@ Page({
       title: '加载中',
       mask: true
     })
-    // const userid = 'f123456'
-    plan_study_list().then(res => {
-    // plan_study_list(userid).then(res => {
+    const userid = 123456
+    // plan_study_list().then(res => {
+    plan_study_list(userid).then(res => {
       wx.hideLoading()
       res = res.data
       console.info(res)

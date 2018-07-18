@@ -1,5 +1,5 @@
 // const plan_study_details = require('../../../config/planConfig.js').plan_study_details;
-import { planDetailsList } from '../../../config/planConfig.js'
+import { planDetailsList } from '../../../api/planConfig.js'
 const SUCCESS_OK = "200";
 const app = getApp()
 Page({
