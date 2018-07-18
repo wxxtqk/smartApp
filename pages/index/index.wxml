@@ -3,8 +3,60 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" mode="aspectFit"/>
+        <image src="{{item}}" class="slide-image" mode/>
       </swiper-item>
     </block>
   </swiper>
-</view>
+  <!-- 导航栏 -->
+  <view class="home-nav">
+    <view class="home-nav-item">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">经营管理</view>
+    </view> 
+    <view class="home-nav-item">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">精益管理</view>
+    </view> 
+    <view class="home-nav-item">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">供应链管理</view>
+    </view> 
+    <view class="home-nav-item">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">更多</view>
+    </view> 
+  </view>
+  <!-- 最热课程 -->
+  <view class="content-wraper">
+    <view class="content-header">
+      <view class="content-h-l">最热课程</view>
+      <view class="content-h-r">查看跟多>></view>
+    </view>
+    <!-- 主体内容 -->
+    <view class="content-lists"></view>
+  </view>
+  <!-- 推荐课程 -->
+  <view class="content-wraper">
+    <view class="content-header">
+      <view class="content-h-l">推荐课程 </view>
+      <view class="content-h-r">查看跟多>></view>
+    </view>
+    <!-- 主体内容 -->
+  </view>
+  <!-- 免费专区 -->
+  <view class="content-wraper">
+    <view class="content-header">
+      <view class="content-h-l">免费专区     </view>
+      <view class="content-h-r">查看跟多>></view>
+    </view>
+    <!-- 主体内容 -->
+  </view>
+  <!-- 企业风采展示 -->
+  <view class="content-wraper">
+    <view class="content-header">
+      <view class="content-h-l">企业风采展示</view>
+      <view class="content-h-r">查看跟多>></view>
+    </view>
+    <!-- 主体内容 -->
+  </view>
+</view>         

@@ -3,3 +3,64 @@ page{
     height: 100%;
     background-color: rgb(243, 243, 243);
 }
+.home-container{
+    padding: 0 30rpx;
+}
+.home-nav ,.content-wraper{
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 30rpx 0;
+}
+.home-nav-item{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25rpx;
+}
+.home-nav-icon{
+    width: 48rpx;
+    height: 48rpx;
+}
+.home-nav-text{
+    margin-top: 6rpx;
+}
+.content-wraper{
+    margin-top: 20rpx;
+    font-size: 25rpx;
+    padding: 15rpx 0;
+    flex-direction: column;
+
+}
+.content-header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 9rpx 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd
+    
+}
+.content-h-l{
+    width: 50%;
+    border-left: 4rpx solid rgb(20, 159, 239);
+    padding-left: 15rpx;
+    margin-left: 20rpx;
+}
+.content-h-r{
+    flex: 1;
+    text-align: right;
+    padding-right: 20rpx;
+}
+.content-lists{
+    width: 100%;
+    padding: 0 20rpx;
+    height: 50rpx;
+    box-sizing: border-box;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
