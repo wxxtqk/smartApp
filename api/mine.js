@@ -29,3 +29,10 @@ export function fetchRecord() {
         method: 'POST'
     })
 }
+// 获取企业产品
+export function fetchProd() {
+    return fetch({
+        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/prod',
+        method: 'POST'
+    })
+}

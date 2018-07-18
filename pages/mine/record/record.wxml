@@ -1,4 +1,4 @@
-<scroll-view class="favorite-container" scroll-y>
+<view class="favorite-container">
   <view class="favorite-list" wx:for="{{lists}}">
     <image class="favorite-img"  src="{{item.url}}"></image> 
     <view class="favorite-item">
@@ -6,4 +6,4 @@
       <view class="favorite-date">{{item.count}}多次学习</view>
     </view>
   </view>
-</scroll-view>
+</view>
