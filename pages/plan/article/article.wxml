@@ -1,3 +1,4 @@
+<import src="../../../component/curriculum/curriculum.wxml"/>
 <view>
   <view class='article-package'>
     <scroll-view scroll-y style="height:100%;">
@@ -30,6 +31,15 @@
           <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{lickSrc}}"></image>
         </view>
         <view class='margin-line-content lick-title'><text>收藏</text></view>
+      </view>
+      <view class="proposal">
+        <view class="proposal-title">推荐课程</view>
+        <view class="proposal-title-line"></view>
+        <view class="curriculum-item">
+          <!-- <template is="curriculum" wx:for="{{array}}" data="{{item}}"></template> -->
+           <template is="curriculum"></template>
+        </view>
+        
       </view>
     </view>
     </scroll-view>

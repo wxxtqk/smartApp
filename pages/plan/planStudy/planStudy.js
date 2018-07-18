@@ -23,12 +23,20 @@ Page({
   // 跳转到其他页面
   topage: function(event) {
     console.info(event)
-    let url = event.currentTarget.dataset.page
+    let articleurl = event.currentTarget.dataset.pageone
+    let voiceurl = event.currentTarget.dataset.pagetwo
     let articleList = event.currentTarget.dataset.article
-    // 跳转页面传值
-    wx.navigateTo({
-      url: url + '?articleList=' + JSON.stringify(articleList)
-    })
+    let topageType = event.currentTarget.dataset.article.type
+    // // // 跳转页面传值
+    if (topageType === 1) {
+      wx.navigateTo({
+        url: articleurl + '?articleList=' + JSON.stringify(articleList)
+      })
+    } else if (topageType === 2) {
+      wx.navigateTo({
+        url: voiceurl + '?articleList=' + JSON.stringify(articleList)
+      })
+    }
   },
   // 获取课程详情列表
   _gitDetailsList: function () {
