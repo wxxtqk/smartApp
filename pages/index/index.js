@@ -39,7 +39,8 @@ Page({
           content: res.message
         })
       }
-    }).catch(() => {
+    }).catch((e) => {
+      console.log(e)
       wx.hideLoading()
       wx.showModal({
         title: '提示',

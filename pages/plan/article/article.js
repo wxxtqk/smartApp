@@ -1,5 +1,5 @@
 
-import { curriculumList, Collection } from '../../../config/planConfig.js'
+import { curriculumList, Collection } from '../../../api/planConfig.js'
 const SUCCESS_OK = "200";
 let wxparse = require("../../../wxParse/wxParse.js");
 const app = getApp()
