@@ -5,7 +5,6 @@
     <scroll-view scroll-y style="height:100%;">
     <view class="article-package-padding">
       <view>
-        <!-- <view class="title-name">{{articleTitle}}</view> -->
          <view class="title-name">{{curriculum.proposalTitle}}</view> 
         <view class='article-people-package author-padding'>
           <view class='article-people-package'>
@@ -17,15 +16,14 @@
           <view class='margin-line-content study-number'>{{curriculum.studyNumber}}次学习</view>
         </view>
         <view class="article-content">
-           <!-- <view>{{articleTitle}}</view>{{curriculum.curriculumContent}}   -->
-           <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/> 
+           <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/>
         </view>
-        <view class="article-lick">
+        <view class="article-lick" bindtap='collectionclick' data-item="{{lickSrc}}">
             <image class='likebg-src' mode="aspectFit" src="{{likebg}}"></image>
           <view>
-            <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{lickSrc}}"></image>
+            <image style="width: 60rpx; height: 100%;" mode="aspectFit" src="{{collectionType == false?lickSrc:lickActiveSrc}}"></image>
           </view>
-          <view class='margin-line-content lick-title'><text>收藏</text></view>
+          <view class='margin-line-content lick-title'><text>{{collectionType == false? '收藏':'已收藏'}}</text></view>
         </view>
       </view>
 
@@ -33,7 +31,6 @@
         <view class="proposal-title">推荐课程</view>
         <view class="proposal-title-line"></view>
         <view class="curriculum-item">
-           <!-- <template is="curriculum" wx:for="{{proposal}}" data="{{item}}"></template> -->
           <view wx:for="{{proposal}}">
             <view class="proposal-item" bindtap='itemclick' data-item='{{item}}'>
               <template is="curriculum" data="{{item}}"></template>

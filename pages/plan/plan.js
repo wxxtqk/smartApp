@@ -26,7 +26,9 @@ Page({
       title: '加载中',
       mask: true
     })
+    // const userid = 'f123456'
     plan_study_list().then(res => {
+    // plan_study_list(userid).then(res => {
       wx.hideLoading()
       res = res.data
       console.info(res)
@@ -49,6 +51,7 @@ Page({
   onLoad: function() {
     var that = this;
     that.gitPlanStudy();
+    console.log(app)
   },
 
   /**
