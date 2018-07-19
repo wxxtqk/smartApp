@@ -12,7 +12,8 @@
     "pages/mine/favorite/favorite",
     "pages/mine/record/record",
     "pages/mine/paylog/paylog",
-    "pages/mine/company/company"
+    "pages/mine/company/company",
+    "pages/index/company/company"
   ],
   "window":{
     "backgroundTextStyle":"light",

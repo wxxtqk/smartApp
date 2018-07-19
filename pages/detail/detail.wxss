@@ -1,0 +1,23 @@
+@import '../../component/curriculum/curriculum.wxss';
+page{
+    height: 100%;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+    }
+    
+.active-text{
+    color: rgb(9, 122, 223)
+}
+.swiper-wrapper{
+    height: calc(100% - 37px);
+}
+swiper{
+    height: 100%;
+    padding: 0 30rpx;
+}
+swiper-item{
+    overflow-y: auto
+}

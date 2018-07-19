@@ -1,11 +1,25 @@
 .company-wrapper{
   display: flex;
   width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 27rpx;
 }
 .company-img{
-  width: 168rpx;
-  height: 129rpx;
+  width:181rpx;
+  height:146rpx;
+  border-radius:6rpx;  
 }
 .company-content{
-  flex: 1
+  flex: 1;
+  margin-left: 26rpx;
+  height: 129rpx;
+  display: flex;
+  flex-direction: column;
+}
+.company-title{
+  font-size: 32rpx;
+}
+.company-desc{
+  flex: 1;
+  color:rgb(184,184,184);
 }

@@ -12,19 +12,27 @@
   </swiper>
   <!-- 导航栏 -->
   <view class="home-nav">
-    <view class="home-nav-item">
+    <view class="home-nav-item" bindtap="detail">
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
       <view class="home-nav-text">经营管理</view>
     </view> 
-    <view class="home-nav-item">
+    <view class="home-nav-item" bindtap="detail">
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
       <view class="home-nav-text">精益管理</view>
     </view> 
-    <view class="home-nav-item">
+    <view class="home-nav-item" bindtap="detail">
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
       <view class="home-nav-text">供应链管理</view>
     </view> 
-    <view class="home-nav-item">
+    <view class="home-nav-item" bindtap="detail">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">更多</view>
+    </view> 
+        <view class="home-nav-item" bindtap="detail">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
+      <view class="home-nav-text">更多</view>
+    </view> 
+        <view class="home-nav-item" bindtap="detail">
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
       <view class="home-nav-text">更多</view>
     </view> 
@@ -78,8 +86,8 @@
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
-      <view>
-        <template is="company"></template>
+      <view wx:for="{{company}}" bindtap='showCompany'>
+        <template is="company" data="{{item}}"></template>
       </view>
     </view>
   </view>

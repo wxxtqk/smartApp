@@ -6,6 +6,7 @@ Page({
     hot: [],
     free: [],
     recommend: [],
+    company: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -30,7 +31,8 @@ Page({
           imgUrls: res.data.imgUrls,
           hot: res.data.hot,
           free: res.data.free,
-          recommend: res.data.recommend
+          recommend: res.data.recommend,
+          company: res.data.company
         })
         console.log(res.data)
       } else {
@@ -40,12 +42,23 @@ Page({
         })
       }
     }).catch((e) => {
-      console.log(e)
       wx.hideLoading()
       wx.showModal({
         title: '提示',
         content: '连接数据库失败'
       })
+    })
+  },
+  // 进入详情页面
+  detail() {
+    wx.navigateTo({
+      url: '../../pages/detail/detail'
+    })
+  },
+  // 显示公司页面
+  showCompany() {
+    wx.navigateTo({
+      url: '../../pages/index/company/company'
     })
   }
 })
