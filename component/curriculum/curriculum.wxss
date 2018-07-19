@@ -9,10 +9,20 @@
   /* 对齐方式，两端对齐  */
   justify-content:space-between;
 }
+/*对齐方式： 居中对齐  */
+.flex-center {
+  display:flex;
+  justify-content: center;
+}
 /*对齐方式： 底部对齐  */
 .flex-end {
   display:flex;
   align-items:flex-end;
+}
+/*对齐方式： X轴对齐  */
+.flex-text-center {
+  display:flex;
+  align-items:center;
 }
 /*垂直布局  */
 .column {
