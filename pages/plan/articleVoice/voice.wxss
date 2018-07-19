@@ -1,0 +1,44 @@
+ @import "../../../component/curriculum/curriculum.wxss"; 
+.voice-package{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+.voice-package-padding {
+    padding:60rpx 48rpx;
+}
+/*音频标题  */
+.voice-title {
+  font-size: 42rpx;
+  font-weight: bold;
+  padding-bottom: 62rpx;
+}
+/*封面  */
+.cover-image{
+  width: 364rpx;
+  height: 284rpx;
+  background-color: rgb(141,141,141);
+}
+/*推荐人 学习 与收藏  */
+.voice-people{
+  padding-top:84rpx;
+}
+.people-study{
+  /* width:352rpx; */
+  height: 68rpx;
+  margin-right:44rpx;
+  background-color:rgb(239,107,51);
+  border-radius:68rpx;
+  color: #fff;
+}
+.people-padding{
+  padding-left: 18rpx;
+}
+.study-padding{
+  padding: 0 38rpx;
+}
+
+/*音频  */
