@@ -1,0 +1,10 @@
+<!--课程模板 推荐课程  -->
+ <template name='company'>
+    <view class="company-wrapper">
+      <view class="company-img"></view>
+      <view class="company-content">
+        <view class="company-title">企业标题</view>
+        <view class="company-desc">简介</view>
+      </view>
+    </view>
+</template>

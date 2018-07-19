@@ -1,0 +1,11 @@
+.company-wrapper{
+  display: flex;
+  width: 100%;
+}
+.company-img{
+  width: 168rpx;
+  height: 129rpx;
+}
+.company-content{
+  flex: 1
+}

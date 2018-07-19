@@ -1,5 +1,6 @@
 <import src="../../component/curriculum/curriculum.wxml" />
 <import src="../../component/recommend/recommend.wxml" />
+<import src="../../component/company/company.wxml" />
 <view class="home-container">
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -32,7 +33,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">最热课程</view>
-      <view class="content-h-r">查看跟多>></view>
+      <view class="content-h-r">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -45,7 +46,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">推荐课程 </view>
-      <view class="content-h-r">查看跟多>></view>
+      <view class="content-h-r">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -60,7 +61,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">免费专区</view>
-      <view class="content-h-r">查看跟多>></view>
+      <view class="content-h-r">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -73,8 +74,13 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">企业风采展示</view>
-      <view class="content-h-r">查看跟多>></view>
+      <view class="content-h-r">查看更多>></view>
     </view>
     <!-- 主体内容 -->
+    <view class="content-lists">
+      <view>
+        <template is="company"></template>
+      </view>
+    </view>
   </view>
 </view>         
