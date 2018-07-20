@@ -32,7 +32,8 @@ Page({
         audioImgUrl: '../../../imgs/play.png',
         currentProcessNum: 0, // 进度条改变值
         src: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46',
-        canSlider: false,    //是否可以滑动，防止加载音乐时 用户滑动进度条
+        songLength: 401.475918, // 音频总时长
+        canSlider: false,   //是否可以滑动，防止加载音乐时 用户滑动进度条
         currentProcess: '00:00',//显示 将currentProcessNum处理成时间形式展示
         totalProcess: '00:00',
         totalProcessNum: 100,
@@ -45,7 +46,7 @@ Page({
     lickSrc: '../../../imgs/voice_like.png',
     // likebg: '../../../imgs/likebg.png',
     audioplayImgUrl: '../../../imgs/play.png',
-    audiostopImgUrl: '../../../imgs/play.png',
+    audiostopImgUrl: '../../../imgs/paused.png',
   },
 
   // 事件处理
@@ -97,12 +98,12 @@ Page({
     const audioId = event.currentTarget.dataset.audioid;
     var backgroundAudioManager = wx.getBackgroundAudioManager();
     console.log(_this.data)
-    if (_this.data.audioListObj[audioId].audioImgUrl == '../../../imgs/play.png') {
+    if (_this.data.audioListObj[audioId].audioImgUrl == _this.data.audioplayImgUrl) {
       console.log('转换至播放状态')
       //切换所有播放按钮为暂停状态
       for (var j in _this.data.audioListObj) {
         if (j && _this.data.audioListObj[j]) {
-          _this.data.audioListObj[j].audioImgUrl = '../../../imgs/play.png';
+          _this.data.audioListObj[j].audioImgUrl = _this.data.audioplayImgUrl;
         }
       }
       _this.setData({
@@ -110,24 +111,24 @@ Page({
       })
       //暂停正在播放音乐
       wx.stopBackgroundAudio();
-      _obj[audioId].audioImgUrl = '../../../imgs/paused.png';
+      _obj[audioId].audioImgUrl = _this.data.audiostopImgUrl;
       // backgroundAudioManager.title = '测试';
       // //设置音乐开始时间
        if (_this.data.audioListObj[audioId].currentProcessNum != 0) {
         //  console.log(_this.data.audioListObj[audioId].currentProcess)
         //  console.log(_this.data.audioListObj[audioId].currentProcessNum)
-         backgroundAudioManager.startTime = _this.data.audioListObj[audioId].currentProcess;
+         backgroundAudioManager.startTime = (_this.data.audioListObj[audioId].currentProcessNum / 100) * _this.data.audioListObj[audioId].songLength;
        }
-      //  backgroundAudioManager.src = _this.data.audioListObj[audioId].src;
+       backgroundAudioManager.src = _this.data.audioListObj[audioId].src;
 
        console.log('歌曲长度', backgroundAudioManager.duration)
-      //  // _obj[audioId].canSlider = true;
+      //  _obj[audioId].canSlider = true;
        backgroundAudioManager.play();
        //    背景音频自然播放结束事件
        backgroundAudioManager.onEnded(function () {
          var _obj = _this.data.audioListObj;
-         _obj[audioId].audioImgUrl = '../../../imgs/play.png';
-         _obj[audioId].currentProcess = 0;
+         _obj[audioId].audioImgUrl = _this.data.audioplayImgUrl;
+         _obj[audioId].currentProcess = '00:00';
          _obj[audioId].currentProcessNum = 0;
          _this.setData({
            audioListObj: _obj
@@ -160,9 +161,9 @@ Page({
           })
         }
       })
-    } else if (_this.data.audioListObj[audioId].audioImgUrl == '../../../imgs/paused.png') {
+    } else if (_this.data.audioListObj[audioId].audioImgUrl == _this.data.audiostopImgUrl) {
       console.log('转换至暂停状态')
-      _obj[audioId].audioImgUrl = '../../../imgs/play.png'
+      _obj[audioId].audioImgUrl = _this.data.audioplayImgUrl
       wx.pauseBackgroundAudio();
       backgroundAudioManager.pause();
     }
@@ -180,20 +181,19 @@ Page({
     const _obj = _this.data.audioListObj;
     const position = event.detail.value;
     const audioId = event.currentTarget.dataset.audioid;
-    var backgroundAudioManager = app.globalData.bgAudioListManager;
-
-    console.log(app)
-    console.log((position * _obj[audioId].totalProcess) / 100)
-    // _obj[audioId].currentProcess = formatTimeNew((position * _obj[audioId].totalProcess) / 100 );
-    // _obj[audioId].currentProcessNum = position;
+    // _obj[audioId].canSlider = false;
+    _obj[audioId].currentProcess = formatTimeNew((position / 100) * _this.data.audioListObj[audioId].songLength);
+    _obj[audioId].currentProcessNum = position;
 
     //如果正在播放
-    if (_obj[audioId].imgUrl == '../../images/paused.png') {
+    if (_obj[audioId].audioImgUrl == _this.data.audiostopImgUrl) {
       _obj[audioId].seek = position;
+      // console.log(_obj[audioId].seek)
       if (_obj[audioId].seek != -1) {
-        wx.seekBackgroundAudio({
-          position: Math.floor(position),
-        })
+        // wx.seekBackgroundAudio({
+        //   position: Math.floor(position),
+        // })
+        backgroundAudioManager.seek((position / 100) * _this.data.audioListObj[audioId].songLength)
         _obj[audioId].seek = -1;
       }
     }
@@ -230,12 +230,18 @@ Page({
     this.articleListTitle()
     // this.articleTitleNmae()
     // let backgroundAudioManager = wx.getBackgroundAudioManager();
-    backgroundAudioManager.src = this.data.audioListObj[0].src;
-    console.log(backgroundAudioManager.play())
-    setTimeout(() => {
-      backgroundAudioManager.seek(60)
-    }, 1000)
-    console.log(this.data.audioListObj[0].src)
+    // backgroundAudioManager.src = this.data.audioListObj[0].src;
+    // wx.stopBackgroundAudio();
+    // backgroundAudioManager.pause()
+
+    // console.log(backgroundAudioManager)
+    // setTimeout(() => {
+    //   backgroundAudioManager.seek(60)
+    // }, 1000)
+    // console.log(this.data.audioListObj[0].src)
+    // this.setDate({
+    //   audioImgUrl: this.data.audioplayImgUrl
+    // })
 
   },
 
