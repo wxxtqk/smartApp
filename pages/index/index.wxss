@@ -14,14 +14,16 @@ page{
     flex-direction: row;
     background-color: #fff;
     padding: 30rpx 0;
+    flex-wrap: wrap;
 }
 .home-nav-item{
-    width: 25%;
+    width: 33%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 25rpx;
+    margin-bottom: 25rpx;
 }
 .home-nav-icon{
     width: 48rpx;
@@ -72,4 +74,5 @@ page{
 image{
     width: 100%;
     height: 100%;
+    border-radius:3rpx; 
 }

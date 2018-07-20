@@ -1,0 +1,44 @@
+<import src="../../../component/demon/demon.wxml" />
+<view class="company-container">
+  <view  class="header">
+    <view class="header-img">
+      <image src="{{header.url}}" />
+    </view>
+    <view class="header-content">
+      <view class="header-title">{{header.title}}</view>
+      <text class="{{more?'header-text-more':'header-text'}}">{{header.desc}}</text>
+      <view class="header-more"><view class="bindtap" bindtap="showmore">{{btnText}}<text class="header-icon {{more?'header-icon-rotate': ''}}"></text></view></view>
+    </view>
+  </view>
+  <!-- 底下主体部分 -->
+
+  <view class="c-container">
+    <view class="c-tab">
+      <view class="c-tab-title {{current==='1'?'c-active':''}}" style="border-right:1px solid #ddd" data-index='1' bindtap='change'>企业产品</view>
+      <view class="c-tab-title {{current==='2'?'c-active':''}}"  data-index='2' bindtap='change'>联系我们</view>
+    </view>
+    <!-- 联系我们 -->
+    <view class="c-lianx" wx:if="{{current==='2'}}">
+      <view class="c-lianx-header">【合作伙伴】</view>
+      <view class="c-collab-wrapper">
+        <view class="c-collab" wx:for="{{lianx.coll}}">{{item}}</view>
+      </view>
+      <view class="c-lianx-header">【联系我们】</view>
+      <view class="c-collab-wrapper">
+        <view wx:for="{{lianx.lianx}}" class="c-callme">{{item}}</view>
+      </view>
+      <view class="c-lianx-header">【公司地址】</view>
+      <view class="c-collab-wrapper">
+        <view>{{lianx.address}}</view>
+      </view>
+    </view>
+
+    <!-- 企业产品 -->
+    <view class="c-demon" wx:else>
+      <view class="c-demon-item" wx:for="{{demon}}">
+        <template is="demon" data="{{item}}"></template>
+      </view>
+    </view>
+    
+  </view>
+</view>

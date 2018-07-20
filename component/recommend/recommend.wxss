@@ -8,6 +8,7 @@
 }
 .r-title{
     margin-top: 10rpx;
+    font-size: 32rpx;
 }
 .r-img{
     width: 100%;
@@ -26,7 +27,8 @@
     margin-top: 10rpx;
 }
 .r-count{
-    flex: 1
+    flex: 1;
+    color:rgb(184,184,184);
 }
 .r-price{
     color:rgb(73,159,228);

@@ -1,1 +1,18 @@
-<view>详情页面</view>
+<import src="../../component/curriculum/curriculum.wxml" />
+<scroll-view scroll-x style="height:70rpx;width:750rpx;overflow:scroll;" scroll-left="{{scroll_left}}">
+  <view style="width:{{tabLists.length*t_width}}rpx;">
+    <view wx:for="{{tabLists}}" style="height:100rpx;width:{{t_width}}rpx;margin-bottom:10rpx;display:inline-block;">
+      <view bindtap='changeview' style="width:100%;height:60rpx;text-align:center;font-size:30rpx;line-height:60rpx;display:inline-block;" class="{{index === c_index?'active-text':''}}" data-current="{{index}}">{{item.name}}</view>
+      <view style="display:{{c_index==index?'block':'none'}}; background:#097ADF;height:2rpx;"></view>
+    </view>
+  </view>
+</scroll-view>
+<view class="swiper-wrapper">
+    <swiper bindchange='get_index' current="{{c_index}}">
+      <swiper-item wx:for="{{tabLists}}">
+          <view wx:for="{{item.data}}">
+            <template is="curriculum" data="{{item}}"></template>
+          </view>
+      </swiper-item>
+    </swiper>
+</view>

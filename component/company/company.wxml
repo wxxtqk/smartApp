@@ -1,10 +1,12 @@
 <!--课程模板 推荐课程  -->
  <template name='company'>
     <view class="company-wrapper">
-      <view class="company-img"></view>
+      <view class="company-img">
+        <image src="{{item.url}}" />
+      </view>
       <view class="company-content">
-        <view class="company-title">企业标题</view>
-        <view class="company-desc">简介</view>
+        <view class="company-title">{{item.title}}</view>
+        <view class="company-desc">{{item.desc}}</view>
       </view>
     </view>
 </template>

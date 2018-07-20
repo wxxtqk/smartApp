@@ -1,0 +1,13 @@
+<!--课程模板 推荐课程  -->
+ <template name='demon'>
+    <view class="demon-wrapper">
+      <view class="demon-img">
+        <image src="{{item.url}}" />
+      </view>
+      <view class="demon-content">
+        <view class="demon-title">{{item.title}}</view>
+        <view class="demon-desc">{{item.desc}}</view>
+      </view>
+      <view class="demon-price">{{item.price}}</view>
+    </view>
+</template>
