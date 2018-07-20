@@ -193,6 +193,38 @@ Page({
     });
   },
 
+  // 跳转到其他页面
+  // topage: function (event) {
+  //   console.log(event)
+  //   let url = event.currentTarget.dataset.page
+  //   let studyDetails = event.currentTarget.dataset.details
+  //   // 页面跳转传值
+  //   wx.navigateTo({
+  //     url: url + '?details=' + JSON.stringify(studyDetails)
+  //   })
+  // },
+
+  // 推荐课程点击事件 跳转到其他页面
+  itemclicktopage(event) {
+    console.log(event)
+    let urlone = event.currentTarget.dataset.pageone
+    let urlzero = event.currentTarget.dataset.pagezero
+    let studyDetails = event.currentTarget.dataset.details
+    let priceType = studyDetails.priceType // 付费类型 1付费 0免费
+    // 页面跳转传值
+    console.log(typeof priceType)
+    if (priceType === 1 ){
+      wx.navigateTo({
+        url: urlone + '?details=' + JSON.stringify(studyDetails)
+      })
+    } else if(priceType === 0) {
+      wx.navigateTo({
+        url: urlzero + '?details=' + JSON.stringify(studyDetails)
+      })
+
+    }
+  },
+
 
   // 接口获取音频课程展示列表
   _voiceList:function(){

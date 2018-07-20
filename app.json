@@ -8,6 +8,7 @@
     "pages/plan/planStudy/planStudy",
     "pages/plan/article/article",
     "pages/plan/articleVoice/voice",
+    "pages/plan/purchase/purchase",
     "pages/mine/personal/personal",
     "pages/mine/favorite/favorite",
     "pages/mine/record/record",

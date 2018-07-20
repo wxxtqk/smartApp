@@ -75,3 +75,12 @@ export function voiceCollection(typeState) {
     data
   })
 }
+
+// 购买课程显示列表
+export function purchaseList() {
+  let url = `${host}/purchaseList`
+  return fetch({
+    url,
+    method: 'POST',
+  })
+}
