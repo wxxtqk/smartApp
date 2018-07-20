@@ -1,39 +1,72 @@
+<import src="../../../component/curriculum/curriculum.wxml"/>
+<import src="../../../wxParse/wxParse.wxml"/>
 <view class="voice-package">
   <scroll-view scroll-y style="height:100%;">
-    <view class="voice-package-padding">
-      <view>
-        <view class="voice-title">第几集  录音标题标题标题标题标题标题标题标题标题标题</view>
-        <view class="voice-cover flex-center"><view class="cover-image"></view></view>
-        <view class="voice-people flex-center">
-          <view class='flex-space-between'>
-            <view class='people-study flex'>
-              <view><image style="width: 68rpx; height: 68rpx;" mode="aspectFit" src="{{authorSrc}}"></image></view>
-              <view class='flex-text-center'>
-                <view class="people-padding">曹老师</view>
-                <view class='study-padding'>653次学习</view>
+    <view>
+      <view class='bg-white margin10'>
+        <view class="voice-package-padding">
+          <view class="voice-title">{{voiceTitle}}</view>
+          <view class="voice-cover flex-center">
+            <view class="cover-image">
+               <image src="{{voiceCoverimage}}" style='width:100%;height:100%;' mode="aspectFill"></image> 
+            </view>
+          </view>
+          <view class="voice-people flex-center">
+            <view class='flex-space-between'>
+              <view class='people-study flex'>
+                <view><image style="width: 68rpx; height: 68rpx;" mode="aspectFit" src="{{authorSrc}}"></image></view>
+                <view class='flex-text-center'>
+                  <view class="people-padding">{{Referee}}</view>
+                  <view class='study-padding'>{{studyNumber}}次学习</view>
+                </view>
+              </view>
+              <view class="article-lick" bindtap='collectionclick' data-item="{{lickSrc}}">
+                <image style="width: 56rpx; height: 68rpx;" mode="aspectFit" src="{{collectionType == false?lickSrc:lickActiveSrc}}"></image>
               </view>
             </view>
-            <view><image style="width: 56rpx; height: 68rpx;" mode="aspectFit" src="{{lickSrc}}"></image></view>
           </view>
-        </view>
-        <view class="voice-audio">
-
-          <!-- <audio  src="{{src}}" id="myAudio" ></audio> 
-
-          <button type="primary" bindtap="audioPlay">播放</button>
-          <button type="primary" bindtap="audioPause">暂停</button>
-          <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
-          <button type="primary" bindtap="audioStart">回到开头</button> -->
-          <view class="flex">
-            <text>{{audioListObj[0].currentProcess}}</text>
-            <slider bindchange="changeProgress" bindtouchstart="touchstart" bindtouchend="touchend" max="{{audioListObj[0].totalProcessNum}}" min="0" value="{{audioListObj[0].currentProcessNum}}" disabled="{{audioListObj[0].canSlider}}" block-size="15" activeColor="#1a94e1" backgroundColor="#d5d5d5" data-audioId="{{questionObj.id}}" class="flex-item"></slider>
-            <text>{{audioListObj[0].totalProcess}}</text>
-          </view>
-          <view class='flex-center'>
-            <image src="{{audioListObj[0].audioImgUrl}}" data-audioId="{{questionObj.id}}" bindtap="clickPlayAudio" style='width:200rpx;height:200rpx;' mode="aspectFit"></image>  <!-- clickPlayAudio 播放按钮触发事件 -->
+          <view class="voice-audio">
+            <view class="flex">
+              <text class="flex-text-center voice-audio-time">{{audioListObj[0].currentProcess}}</text>
+              <slider bindchange="changeProgress" bindtouchstart="touchstart" bindtouchend="touchend" max="{{audioListObj[0].totalProcessNum}}" min="0" value="{{audioListObj[0].currentProcessNum}}" disabled="{{audioListObj[0].canSlider}}" block-size="15" activeColor="#1a94e1" backgroundColor="#d5d5d5" data-audioId="{{questionObj.id}}" class="flex-item"></slider>
+              <text class="flex-text-center voice-audio-time">{{audioListObj[0].totalProcess}}</text>
+            </view>
+            <view class='flex-center'>
+              <image src="{{audioPrevUrl}}" bindtap="" style='width:56rpx;height:200rpx;margin-right:60rpx;' mode="aspectFit"></image>  <!-- 上一个 -->
+              <image src="{{audioListObj[0].audioImgUrl}}" data-audioId="{{questionObj.id}}" bindtap="clickPlayAudio" style='width:200rpx;height:200rpx;' mode="aspectFit"></image>  <!-- clickPlayAudio 播放按钮触发事件 -->
+              <image src="{{audioNextUrl}}" bindtap="" style='width:56rpx;height:200rpx;margin-left:60rpx;' mode="aspectFit"></image>  <!-- 下一个 -->
+            </view>
           </view>
         </view>
       </view>
+
+      <view class='bg-white margin10'>
+        <view class="voice-package-padding">
+          <view class="voice-content">
+            <view class="voice-content-title">课程内容</view>
+            <view class='voice-content-details' style="font-size: 30rpx;color: rgb(94,94,94);">
+               <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/> 
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='bg-white'>
+        <view class="voice-package-padding">
+          <view class="proposal">
+            <view class="proposal-title">推荐课程</view>
+            <view class="proposal-title-line"></view>
+            <view class="curriculum-item">
+              <view wx:for="{{proposal}}" wx:key="*this">
+                <view class="proposal-item" bindtap='itemclick' data-item='{{item}}'>
+                  <template is="curriculum" data="{{item}}"></template>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
     </view>
   </scroll-view>
 </view>

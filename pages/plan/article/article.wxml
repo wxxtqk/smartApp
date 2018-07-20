@@ -1,5 +1,5 @@
 <import src="../../../component/curriculum/curriculum.wxml"/>
- <import src="../../../wxParse/wxParse.wxml"/> 
+<import src="../../../wxParse/wxParse.wxml"/>
 <view>
   <view class='article-package'>
     <scroll-view scroll-y style="height:100%;">
@@ -15,7 +15,7 @@
           </view>
           <view class='margin-line-content study-number'>{{curriculum.studyNumber}}次学习</view>
         </view>
-        <view class="article-content">
+        <view class="article-content" style="font-size: 30rpx;color: rgb(94,94,94);">
            <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/>
         </view>
         <view class="article-lick" bindtap='collectionclick' data-item="{{lickSrc}}">
@@ -31,7 +31,7 @@
         <view class="proposal-title">推荐课程</view>
         <view class="proposal-title-line"></view>
         <view class="curriculum-item">
-          <view wx:for="{{proposal}}">
+          <view wx:for="{{proposal}}" wx:key="*this">
             <view class="proposal-item" bindtap='itemclick' data-item='{{item}}'>
               <template is="curriculum" data="{{item}}"></template>
             </view>

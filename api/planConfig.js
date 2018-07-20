@@ -54,3 +54,24 @@ export function Collection(typeState) {
     data
   })
 }
+// 音频课程显示列表
+export function voiceList() {
+  let url = `${host}/voiceList`
+  return fetch({
+    url,
+    method: 'POST',
+  })
+}
+
+// 音频课程收藏
+export function voiceCollection(typeState) {
+  let url = `${host}/voiceCollection`
+  let data= {
+    collectionType: typeState
+  }
+  return fetch({
+    url,
+    method: 'POST',
+    data
+  })
+}

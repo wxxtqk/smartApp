@@ -6,6 +6,13 @@
   top: 0;
   bottom: 0;
   flex-direction: column;
+  background-color:rgb(239, 239, 244);
+}
+.bg-white {
+  background-color: #fff;
+}
+.margin10 {
+  margin-bottom: 20rpx;
 }
 .voice-package-padding {
     padding:60rpx 48rpx;
@@ -20,7 +27,7 @@
 .cover-image{
   width: 364rpx;
   height: 284rpx;
-  background-color: rgb(141,141,141);
+  background-color: rgb(247,247,247);
 }
 /*推荐人 学习 与收藏  */
 .voice-people{
@@ -42,3 +49,36 @@
 }
 
 /*音频  */
+.voice-audio {
+  padding-top: 70rpx;
+}
+.voice-audio-time{
+  color:rgb(141,141,141);
+  font-size: 25rpx
+}
+
+/*课程内容  */
+.voice-content-title {
+  font-size: 32rpx;
+  color: rgb(141,141,141);
+  font-weight: bold;
+  padding-bottom:24rpx;
+  border-bottom:4rpx solid rgb(238,238,238);
+}
+.voice-content-details{
+  padding: 24rpx 0;
+}
+
+/* 推荐课程  */
+.proposal-title {
+  border-left: 4rpx solid rgb(9,76,197);
+  padding-left: 16rpx;
+  color: rgb(141, 141, 141);
+  margin-bottom: 26rpx;
+}
+.proposal-title-line {
+  border-bottom:2rpx solid rgb(238,238,238);
+}
+.curriculum-item{
+  padding: 26rpx 0;
+}

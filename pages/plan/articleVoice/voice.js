@@ -1,8 +1,9 @@
+import { voiceList, voiceCollection } from '../../../api/planConfig.js'
 import { formatTimeNew } from '../../../utils/formatDate.js'
-// const myaudio = wx.createInnerAudioContext();
-// var myintervi1;
 const app = getApp()
 let backgroundAudioManager = wx.getBackgroundAudioManager();
+const SUCCESS_OK = "200";
+let wxparse = require("../../../wxParse/wxParse.js"); // html转换模板
 Page({
   /**
    * 页面的初始数据
@@ -10,20 +11,15 @@ Page({
   data: {
     articleList: [],
     // articleTitle: '',
-    // array: [
-    //   { id: 11, name: "zz" },
-    //   { id: 22, name: "xx" },
-    //   { id: 33, name: "cc" },
-    //   { id: 44, name: "vv" },
-    //   { id: 55, name: "bb" },
-    //   { id: 66, name: "nn" }
-    // ],
-    // src: '',
-    // currentProcessNum: 0,//赋值
-    // totalProcess: '--:--',
-    // totalProcessNum: 1,
-    // seek: -1,
-    // audioImgUrl: '../../../imgs/play.png',
+    voiceTitle: '', // 标题
+    voiceCoverimage: '', // 封面
+    RefereePortrait: '', // 授课人头像
+    Referee: '', // 授课人
+    studyNumber: '', // 学习次数
+    collectionType: '', // 收藏状态
+    curriculum: {}, // 文章内容
+    proposal: [], //推荐课程
+
     questionObj:{
       id: 0,
     },
@@ -31,11 +27,11 @@ Page({
       {
         audioImgUrl: '../../../imgs/play.png',
         currentProcessNum: 0, // 进度条改变值
-        src: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46',
-        songLength: 401.475918, // 音频总时长
+        src: '',
+        songLength: 0, // 音频总时长
         canSlider: false,   //是否可以滑动，防止加载音乐时 用户滑动进度条
         currentProcess: '00:00',//显示 将currentProcessNum处理成时间形式展示
-        totalProcess: '00:00',
+        totalProcess: '00:00',  // 音频总时长
         totalProcessNum: 100,
         seek: -1,
       }
@@ -43,10 +39,13 @@ Page({
     isMovingSlider: false,
   
     authorSrc: '../../../imgs/author.png',
-    lickSrc: '../../../imgs/voice_like.png',
+    lickSrc: '../../../imgs/voice_like.png',  //收藏
+    lickActiveSrc: '../../../imgs/voice_like_active.png',  //已收藏
     // likebg: '../../../imgs/likebg.png',
     audioplayImgUrl: '../../../imgs/play.png',
     audiostopImgUrl: '../../../imgs/paused.png',
+    audioPrevUrl: '../../../imgs/prev.png',
+    audioNextUrl: '../../../imgs/next.png',
   },
 
   // 事件处理
@@ -67,20 +66,8 @@ Page({
   //     articleTitle: that.data.articleList.subjectTitle
   //   })
   // },
-  // 音频播放
-  // audioPlay: function () {
-  //   this.audioCtx.play()
-  // },
-  // audioPause: function () {
-  //   this.audioCtx.pause()
-  // },
-  // audio14: function () {
-  //   this.audioCtx.seek(14)
-  // },
-  // audioStart: function () {
-  //   this.audioCtx.seek(0)
-  // },
 
+  // 音频播放
 
   // 点击播放按钮触发事件 
   clickPlayAudio: function(event) {
@@ -115,8 +102,6 @@ Page({
       // backgroundAudioManager.title = '测试';
       // //设置音乐开始时间
        if (_this.data.audioListObj[audioId].currentProcessNum != 0) {
-        //  console.log(_this.data.audioListObj[audioId].currentProcess)
-        //  console.log(_this.data.audioListObj[audioId].currentProcessNum)
          backgroundAudioManager.startTime = (_this.data.audioListObj[audioId].currentProcessNum / 100) * _this.data.audioListObj[audioId].songLength;
        }
        backgroundAudioManager.src = _this.data.audioListObj[audioId].src;
@@ -140,11 +125,6 @@ Page({
         _obj = _this.data.audioListObj;
         //设置总时长
         if (_obj[audioId] && _obj[audioId].totalProcess && (_obj[audioId].totalProcess == '--:--' || _obj[audioId].totalProcess == '00:00')) {
-          console.log(_this)
-          console.log(backgroundAudioManager.currentTime)
-          console.log(backgroundAudioManager.duration)
-          console.log(parseInt((backgroundAudioManager.currentTime / backgroundAudioManager.duration) * 100))
-          console.log(formatTimeNew(1401.475918))
           _obj[audioId].totalProcess = formatTimeNew(backgroundAudioManager.duration);
           // _obj[audioId].totalProcessNum = parseInt((backgroundAudioManager.currentTime / backgroundAudioManager.duration)*100);
           // _obj[audioId].totalProcessNum = backgroundAu/dioManager.duration;
@@ -188,7 +168,6 @@ Page({
     //如果正在播放
     if (_obj[audioId].audioImgUrl == _this.data.audiostopImgUrl) {
       _obj[audioId].seek = position;
-      // console.log(_obj[audioId].seek)
       if (_obj[audioId].seek != -1) {
         // wx.seekBackgroundAudio({
         //   position: Math.floor(position),
@@ -215,6 +194,89 @@ Page({
   },
 
 
+  // 接口获取音频课程展示列表
+  _voiceList:function(){
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    voiceList().then(res => {
+      res = res.data
+      console.log(res)
+      if(res.state === SUCCESS_OK){
+        wx.hideLoading()
+        let data = res.data
+        const _data = this.data;
+        const _obj = _data.audioListObj;
+        _obj[0].totalProcess = formatTimeNew(data.songLength); // 音频时长
+        _obj[0].src = data.audioSongSrc;  // 音频
+        _obj[0].songLength = data.songLength; // 音频总时长 以秒为单位
+        console.log(_obj[0].src)
+        this.setData({
+          voiceTitle: data.voiceTitle, // 标题
+          voiceCoverimage: data.voiceCoverimage, // 封面
+          RefereePortrait: data.RefereePortrait, // 授课人头像
+          Referee: data.Referee, // 授课人
+          studyNumber: data.studyNumber, // 学习次数
+          collectionType: data.collectionType, // 收藏状态
+          curriculum: data.curriculumContent,
+          proposal: data.proposal,
+          audioListObj: _obj
+        })
+        wxparse.wxParse('curriculumContent', 'html', this.data.curriculum, this, 24); // 解析html标签
+      } else {
+        wx.hideLoading()
+        wx.showModal({
+          title: '提示',
+          content: '链接数据库失败'
+        })
+      }
+    })
+    .catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    })
+  },
+
+  // 收藏按钮
+  collectionclick: function (event) {
+    console.log(event)
+    console.log(!this.data.collectionType)
+
+    voiceCollection(!this.data.collectionType).then(res => {
+      res = res.data
+      if (res.state === SUCCESS_OK) {
+        this.setData({
+          collectionType: !this.data.collectionType
+        })
+        if (this.data.collectionType === false) {
+          wx.showToast({
+            title: '取消收藏',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+        } else {
+          wx.showToast({
+            title: '已收藏',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+        }
+      } else {
+        wx.showToast({
+          title: '操作失败',
+          icon: 'loading',
+          duration: 1000,
+          mask: true
+        })
+      }
+    })
+  },
 
 
 
@@ -228,20 +290,7 @@ Page({
     })
     console.log(this.data.articleList)
     this.articleListTitle()
-    // this.articleTitleNmae()
-    // let backgroundAudioManager = wx.getBackgroundAudioManager();
-    // backgroundAudioManager.src = this.data.audioListObj[0].src;
-    // wx.stopBackgroundAudio();
-    // backgroundAudioManager.pause()
-
-    // console.log(backgroundAudioManager)
-    // setTimeout(() => {
-    //   backgroundAudioManager.seek(60)
-    // }, 1000)
-    // console.log(this.data.audioListObj[0].src)
-    // this.setDate({
-    //   audioImgUrl: this.data.audioplayImgUrl
-    // })
+    this._voiceList()
 
   },
 
