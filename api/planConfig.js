@@ -19,15 +19,15 @@ export function plan_study_list(data) {
   })
 }
 // 教学计划课表详情列表
-export function planDetailsList(planId) {
-  let data= {
-    planId: planId
-  }
-  console.log(data)
+export function planDetailsList() {
+  // let data= {
+  //   planId: planId
+  // }
+  // console.log(data)
   return fetch({
     url: `${host}/detailsList`,
-    method: 'POST',
-    data
+    method: 'POST'
+    // data
   })
 }
 // 文章内容展示列表

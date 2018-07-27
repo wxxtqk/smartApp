@@ -32,9 +32,12 @@
         <view class="proposal-title-line"></view>
         <view class="curriculum-item">
           <view wx:for="{{proposal}}" wx:key="*this">
-            <view class="proposal-item" bindtap='itemclick' data-item='{{item}}'>
+            <!-- <view class="proposal-item" bindtap='itemclicktopage' data-item='{{item}}'>
               <template is="curriculum" data="{{item}}"></template>
-            </view>
+            </view> -->
+            <view class="proposal-item" data-pageone="../purchase/purchase" data-pagezero="../planStudy/planStudy" bindtap='itemclicktopage' data-details='{{item}}'>
+                  <template is="curriculum" data="{{item}}"></template>
+                </view>
           </view> 
         </view>
       </view>
