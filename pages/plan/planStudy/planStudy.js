@@ -16,9 +16,18 @@ Page({
   studyDetailsTitle: function(){
     var that = this;
     // console.log(that.data.studyList)
-    wx.setNavigationBarTitle({
-      title: that.data.studyList.planTitle
-    })
+    if (that.data.studyList.planTitle) {
+      console.log('1')
+      wx.setNavigationBarTitle({
+        title: that.data.studyList.planTitle
+      })
+    } else {
+      console.log('2')
+      wx.setNavigationBarTitle({
+        title: that.data.studyList.proposalTitle
+      })
+      
+    }
   },
   // 跳转到其他页面
   topage: function(event) {
@@ -40,12 +49,12 @@ Page({
   },
   // 获取课程详情列表
   _gitDetailsList: function () {
-    console.log(this.data.studyList.planId)
+    // console.log(this.data.studyList.planId)
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    planDetailsList(this.data.studyList.planId).then(res => {
+    planDetailsList().then(res => {
       wx.hideLoading()
       res = res.data
       console.log(res)
@@ -72,7 +81,7 @@ Page({
     this.setData({
       studyList: JSON.parse(options.details)
     })
-    // console.log(options)
+    console.log(this.data.studyList)
     // console.log(JSON.parse(options.details))
     this.studyDetailsTitle()
     this._gitDetailsList()
