@@ -1,7 +1,7 @@
 import fetch from '../utils/fetch.js'
-// 设置个人资料
+// 获取首页所有数据
 export function fetchHome() {
-  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/home'
+  let url = 'http://192.168.199.98:8080/jeesite/a/course/first'
   return fetch({
     url,
     method: 'POST'

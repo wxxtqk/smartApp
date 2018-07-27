@@ -2,6 +2,7 @@
   <view class="r-container">
     <view class="r-img">
       <image src="{{item.proposalImg}}" />
+      <view class="voice"></view>
     </view>
     <view class="r-title">{{item.proposalTitle}}</view>
     <view class="r-bottom">

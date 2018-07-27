@@ -40,6 +40,7 @@
   width:181rpx;
   height:146rpx;
   border-radius:6rpx;
+  position: relative;
   background-color:#f4f4f4;
 }
 /*标题，授课人，学习次数  */
