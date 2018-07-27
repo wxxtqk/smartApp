@@ -36,3 +36,20 @@ export function fetchProd() {
         method: 'POST'
     })
 }
+// 我的企业提交
+export function addCompany({name, address, coll, desc, email, tel, urls}) {
+    let data = {
+        companyName: name,
+        companyAddress: address,
+        companyPicture: urls.join(','),
+        companyPartner: coll,
+        companyPhone: tel,
+        companyEmail: email,
+        companyInner:desc
+    }
+    return fetch({
+        url: 'http://192.168.199.98:8080/jeesite/a/company/save',
+        method: 'POST',
+        data
+    })
+}
