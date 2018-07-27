@@ -70,6 +70,11 @@ page{
 }
 .recommend{
     width: 33%;
+    display: inline-block
+}
+.scroll-wraper{
+    display: flex;
+    white-space: nowrap;
 }
 image{
     width: 100%;

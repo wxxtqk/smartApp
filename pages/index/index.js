@@ -7,6 +7,7 @@ Page({
     free: [],
     recommend: [],
     company: [],
+    types: {},
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -32,7 +33,8 @@ Page({
           hot: res.data.hot,
           free: res.data.free,
           recommend: res.data.recommend,
-          company: res.data.company
+          company: res.data.company,
+          types: res.data.types
         })
         console.log(res.data)
       } else {
@@ -60,5 +62,12 @@ Page({
     wx.navigateTo({
       url: '../../pages/index/company/company'
     })
+  },
+  // 进入详情
+  toDetail(e) {
+    console.log(e)
+    // wx.navigateTo({
+    //   url: '../../pages/plan/purchase/purchase'
+    // })
   }
 })

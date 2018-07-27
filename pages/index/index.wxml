@@ -12,30 +12,10 @@
   </swiper>
   <!-- 导航栏 -->
   <view class="home-nav">
-    <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">经营管理</view>
-    </view> 
-    <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">精益管理</view>
-    </view> 
-    <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">供应链管理</view>
-    </view> 
-    <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">更多</view>
-    </view> 
-        <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">更多</view>
-    </view> 
-        <view class="home-nav-item" bindtap="detail">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" class="home-nav-icon" />
-      <view class="home-nav-text">更多</view>
-    </view> 
+    <view class="home-nav-item" bindtap="detail" wx:for="{{types}}">
+      <image src="{{item.img}}" class="home-nav-icon" />
+      <view class="home-nav-text">{{item.name}}</view>
+    </view>
   </view>
   <!-- 最热课程 -->
   <view class="content-wraper">
@@ -45,7 +25,7 @@
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
-      <view wx:for="{{hot}}" wx:key="*this">
+      <view wx:for="{{hot}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}'>
         <template is="curriculum" data="{{item}}"></template>
       </view>
     </view>
@@ -59,9 +39,11 @@
     <!-- 主体内容 -->
     <view class="content-lists">
       <view class="recommend-wraper">
-        <view class="recommend" wx:for="{{recommend}}" wx:key="*this">
-          <template is="recommend" data="{{item}}"></template>
-        </view>
+        <scroll-view scroll-x="{{true}}" class="scroll-wraper"  bindtap='toDetail' data-details='{{item}}'>
+          <view class="recommend" wx:for="{{recommend}}" wx:key="*this">
+            <template is="recommend" data="{{item}}"></template>
+          </view>
+        </scroll-view>
       </view>
     </view>
   </view>
@@ -73,7 +55,7 @@
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
-      <view wx:for="{{free}}" wx:key="*this">
+      <view wx:for="{{free}}" wx:key="*this"  bindtap='toDetail' data-details='{{item}}'>
         <template is="curriculum" data="{{item}}"></template>
       </view>
     </view>
