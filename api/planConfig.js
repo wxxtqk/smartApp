@@ -24,6 +24,8 @@ export function planDetailsList(planId) {
   let data= {
     planId: planId
   }
+  data = JSON.stringify(data)
+  console.log(data)
   return fetch({
     url,
     method: 'POST',
