@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    introductionList: [],
+    // introductionList: [],
+    inheritCourseId: '',
     purchaseTitle: '',
     purchaseCoverimage: '',
     Referee: '',
@@ -29,13 +30,13 @@ Page({
   // 事件处理
 
   // 修改微信标题
-  changeWxTitle: function () {
-    var that = this;
-    // console.log(that.data.studyList)
-    wx.setNavigationBarTitle({
-      title: that.data.introductionList.proposalTitle
-    })
-  },
+  // changeWxTitle: function () {
+  //   var that = this;
+  //   // console.log(that.data.studyList)
+  //   wx.setNavigationBarTitle({
+  //     title: that.data.introductionList.proposalTitle
+  //   })
+  // },
 
   // 购买课程展示列表
   _purchaseList: function () {
@@ -91,12 +92,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let optionsdetails = JSON.parse(options.details)
     this.setData({
-      introductionList: JSON.parse(options.details), //获取本课程简介内容
+      inheritCourseId: optionsdetails.courseId, //获取本课程简介内容
     })
-    this.changeWxTitle()
+    // this.changeWxTitle()
     this._purchaseList()
-
   },
 
   /**

@@ -211,11 +211,15 @@ Page({
     let urlzero = event.currentTarget.dataset.pagezero
     let studyDetails = event.currentTarget.dataset.details
     let priceType = studyDetails.priceType // 付费类型 1付费 0免费
+    // 传值id
+    let courseId = {
+      courseId: studyDetails.proposalId
+    }
     // 页面跳转传值
-    console.log(typeof priceType)
     if (priceType === 1 ){
       wx.navigateTo({
-        url: urlone + '?details=' + JSON.stringify(studyDetails)
+        // url: urlone + '?details=' + JSON.stringify(studyDetails)
+        url: urlone + '?details=' + JSON.stringify(courseId)
       })
     } else if(priceType === 0) {
       wx.navigateTo({

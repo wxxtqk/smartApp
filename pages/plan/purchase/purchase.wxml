@@ -10,18 +10,6 @@
             </view>
           </view>
           <view class="purchase-people">
-            <!-- <view class='flex-space-between'>
-              <view class='people-study flex'>
-                <view><image style="width: 68rpx; height: 68rpx;" mode="aspectFit" src="{{authorSrc}}"></image></view>
-                <view class='flex-text-center'>
-                  <view class="people-padding">{{Referee}}</view>
-                  <view class='study-padding'>{{studyNumber}}次学习</view>
-                </view>
-              </view>
-              <view class="article-lick" bindtap='collectionclick' data-item="{{lickSrc}}">
-                <image style="width: 56rpx; height: 68rpx;" mode="aspectFit" src="{{collectionType == false?lickSrc:lickActiveSrc}}"></image>
-              </view>
-            </view> -->
             <view class='flex-center'>主讲人: {{Referee}}</view>
             <view class='flex-center'>
               <view class='discount'>
@@ -38,7 +26,6 @@
           <view class="purchase-content">
             <view class="purchase-content-title">课程介绍</view>
             <view class='purchase-content-details' style="font-size: 30rpx;color: rgb(94,94,94);">
-               <!-- <template is="wxParse" data="{{wxParseData:curriculumContent.nodes}}"/>  -->
                {{courseIntroduction}}
             </view>
           </view>
