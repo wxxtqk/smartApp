@@ -46,17 +46,22 @@ export function fetchPayLog() {
     })
 } 
 // 获取企业产品
-export function fetchProd() {
+export function fetchProd(companyId) {
+    let data = {
+        companyId
+    }
     return fetch({
-        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/prod',
-        method: 'POST'
+        url: 'http://192.168.199.98:8080/jeesite/a/goods/list',
+        method: 'POST',
+        data
     })
 }
 // 删除企业产品
-export function deletProd() {
+export function deletProd(data) {
     return fetch({
         url: 'http://192.168.199.98:8080/jeesite/a/goods/delete',
-        method: 'POST'
+        method: 'POST',
+        data
     })
 }
 // 我的企业提交
@@ -76,19 +81,38 @@ export function addCompany({name, address, coll, desc, email, tel, urls}) {
         data
     })
 }
+// 获取企业
+export function fetchCompany() {
+    return fetch({
+        url: 'http://192.168.199.98:8080/jeesite/a/company/usercompany',
+        method: 'POST'
+    })
+}
 // 新增企业产品
-export function addProd({name, address, coll, desc, email, tel, urls}) {
+export function addProd(config) {
     let data = {
-        companyName: name,
-        companyAddress: address,
-        companyPicture: urls.join(','),
-        companyPartner: coll,
-        companyPhone: tel,
-        companyEmail: email,
-        companyInner:desc
+        goodsPicture: config.urls.join(','),
+        goodsName: config.prodname,
+        goodsInner: config.proddesc,
+        price: config.price,
+        phone: config.prodtel,
+        email: config.prodemail,
+        address: config.prodaddress,
+        companyId: config.companyId
+    }
+    if (config.id){
+        data.id = config.id
     }
     return fetch({
-        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/prod',
+        url: 'http://192.168.199.98:8080/jeesite/a/goods/save',
+        method: 'POST',
+        data
+    })
+}
+// 获取企业产品-------------用于修改
+export function fetchProdSingle(data) {
+    return fetch({
+        url: 'http://192.168.199.98:8080/jeesite/a/goods/showgoods',
         method: 'POST',
         data
     })

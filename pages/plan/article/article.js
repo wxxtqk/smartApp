@@ -142,15 +142,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.setData({
-      articleList: JSON.parse(options.articleList),
-      // articleTitle: this.data.articleList.articleTitle
-    })
-    console.log(this.data.articleList)
-    this.articleListTitle()
-    this.articleTitleNmae()
-    this._curriculumList()
+  onLoad: function ({id}) {
+    // this.setData({
+    //   articleList: JSON.parse(options.articleList),
+    //   // articleTitle: this.data.articleList.articleTitle
+    // })
+    // console.log(this.data.articleList)
+    // this.articleListTitle()
+    // this.articleTitleNmae()
+    this._curriculumList(id)
 
   },
 

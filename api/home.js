@@ -23,3 +23,19 @@ export function fectDemon() {
     method: 'POST'
   })
 }
+// 点击查看更多
+export function fetchMore() {
+  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/show/more'
+  return fetch({
+    url,
+    method: 'POST'
+  })
+}
+// 点击查看更多企业
+export function fetchMoreCompany() {
+  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/more/company'
+  return fetch({
+    url,
+    method: 'POST'
+  })
+}

@@ -39,12 +39,12 @@ Page({
   // },
 
   // 购买课程展示列表
-  _purchaseList: function () {
+  _purchaseList: function (id) {
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    purchaseList().then(res => {
+    purchaseList(id).then(res => {
       res = res.data
       console.log(res)
       if (res.state === SUCCESS_OK) {
@@ -83,22 +83,16 @@ Page({
       }
     })
   },
-
-
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options)
-    let optionsdetails = JSON.parse(options.details)
-    this.setData({
-      inheritCourseId: optionsdetails.courseId, //获取本课程简介内容
-    })
+  onLoad: function ({id}) {
+    // let optionsdetails = JSON.parse(options.details)
+    // this.setData({
+    //   inheritCourseId: optionsdetails.courseId, //获取本课程简介内容
+    // })
     // this.changeWxTitle()
-    this._purchaseList()
+    this._purchaseList(id)
   },
 
   /**

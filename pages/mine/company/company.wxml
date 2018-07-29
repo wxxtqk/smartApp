@@ -12,11 +12,11 @@
     <form bindsubmit="formSubmit">
       <view class="info-item-h">
         <view class="info-h">企业名称</view>
-        <input name="name" placeholder="请填写企业名称" class="info-text"  bindinput="name" />
+        <input name="name" placeholder="请填写企业名称" class="info-text"  value="{{name}}" />
       </view>
       <view class="info-item-v">
         <view class="info-v">企业简介</view>
-        <textarea name="desc" placeholder="请简单描述您的企业" class="info-v-text" bindinput="desc" maxlength="100"></textarea>
+        <textarea name="desc" placeholder="请简单描述您的企业" class="info-v-text" value="{{desc}}" maxlength="100"></textarea>
       </view>
       <view class="info-item-v">
         <view class="info-v">企业图片(仅限3张)</view>
@@ -34,19 +34,19 @@
 
       <view class="info-item-h">
         <view class="info-h">合作伙伴</view>
-        <input name="coll" placeholder="请填写您的合作伙伴" class="info-text"  bindinput="coll" />
+        <input name="coll" placeholder="请填写您的合作伙伴" class="info-text"  value="{{coll}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">联系电话</view>
-        <input name="tel" placeholder="请填写联系电话" class="info-text"  bindinput="tel" />
+        <input name="tel" placeholder="请填写联系电话" class="info-text"  value="{{tel}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">联系邮箱</view>
-        <input name="email" placeholder="请填写联系邮箱" class="info-text"  bindinput="email" />
+        <input name="email" placeholder="请填写联系邮箱" class="info-text"  value="{{email}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">公司地址</view>
-        <input name="address" placeholder="请填写公司地址" class="info-text"  bindinput="address" />
+        <input name="address" placeholder="请填写公司地址" class="info-text"  value="{{address}}" />
       </view>
       <view class="personal-btn-area btn-area">
         <button formType="submit" class="personal-btn">保存</button>
@@ -69,8 +69,8 @@
         <view class="prod-bottom">
           <view class="prod-pay">价格: ￥{{item.price}}</view>
           <view class="prod-btns">
-            <view class="prod-btn prod-del" bindtap="del">删除</view>
-            <view class="prod-btn prod-modfiy" bindtap="modfiy">修改</view>
+            <view class="prod-btn prod-del" bindtap="del" data-prod="{{item.id}}">删除</view>
+            <view class="prod-btn prod-modfiy" bindtap="modfiy" data-prod="{{item.id}}">修改</view>
           </view>
         </view>
       </view>
@@ -84,11 +84,11 @@
     <form bindsubmit="prodSubmit">
       <view class="info-item-h">
         <view class="info-h">产品名称</view>
-        <input name="prodname" placeholder="请填写企业名称" class="info-text"  bindinput="prodname" />
+        <input name="prodname" placeholder="请填写企业名称" class="info-text"  value="{{prodname}}" />
       </view>
       <view class="info-item-v">
         <view class="info-v">产品简介</view>
-        <textarea name="proddesc" placeholder="请简单描述您的企业" class="info-v-text" bindinput="proddesc" maxlength="30"></textarea>
+        <textarea name="proddesc" placeholder="请简单描述您的企业" class="info-v-text" value="{{proddesc}}" maxlength="30"></textarea>
       </view>
       <view class="info-item-v">
         <view class="info-v">企业图片(仅限3张)</view>
@@ -106,19 +106,19 @@
 
       <view class="info-item-h">
         <view class="info-h">产品价格</view>
-        <input name="price" placeholder="请填写产品价格" class="info-text"  bindinput="price" />
+        <input name="price" placeholder="请填写产品价格" class="info-text"  value="{{price}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">联系电话</view>
-        <input name="prodtel" placeholder="请填写联系电话" class="info-text"  bindinput="prodtel" />
+        <input name="prodtel" placeholder="请填写联系电话" class="info-text"  value="{{prodtel}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">联系邮箱</view>
-        <input name="prodemail" placeholder="请填写联系邮箱" class="info-text"  bindinput="prodemail" />
+        <input name="prodemail" placeholder="请填写联系邮箱" class="info-text"  value="{{prodemail}}" />
       </view>
       <view class="info-item-h">
         <view class="info-h">公司地址</view>
-        <input name="prodaddress" placeholder="请填写公司地址" class="info-text"  bindinput="prodaddress" />
+        <input name="prodaddress" placeholder="请填写公司地址" class="info-text"  value="{{prodaddress}}" />
       </view>
       <view class="prod-btn-wrapper">
         <button class="personal-btn prod-cancel" bindtap="cancel">取消</button>

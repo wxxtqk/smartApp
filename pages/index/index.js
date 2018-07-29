@@ -65,9 +65,34 @@ Page({
   },
   // 进入详情
   toDetail(e) {
-    console.log(e)
-    // wx.navigateTo({
-    //   url: '../../pages/plan/purchase/purchase'
-    // })
+    let isBuy = e.currentTarget.dataset.details.isBuy
+    let state =e.currentTarget.dataset.details.state
+    let id = e.currentTarget.dataset.details.id
+    if(isBuy === '0') {
+      wx.navigateTo({
+        url: `../../pages/plan/purchase/purchase?id=${id}`
+      })
+    } else {
+      if (state === '0') {
+        wx.navigateTo({
+          url: `../../pages/plan/article/article?id=${id}`
+        })
+      } else {
+        wx.navigateTo({
+          url: `../../pages/plan/articleVoice/voice?id=${id}`
+        })
+      }
+    }
+  },
+  // 点击查看更多
+  showmore(e) {
+    if (e.currentTarget.dataset.more) {
+      wx.navigateTo({
+        url: `../../pages/more/more?more=${e.currentTarget.dataset.more}`
+      })
+    }
+    wx.navigateTo({
+      url: `../../pages/more/more?company=1`
+    })
   }
 })

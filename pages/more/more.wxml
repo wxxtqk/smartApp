@@ -1,0 +1,13 @@
+<import src="../../component/curriculum/curriculum.wxml" />
+<import src="../../component/company/company.wxml" />
+<view class="more-container"  wx:if="{{lists.length>0}}">
+  <view wx:for="{{lists}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}' class="more-item">
+    <template is="curriculum" data="{{item}}"></template>
+  </view>
+</view>
+
+<view class="more-container" wx:if="{{companys.length>0}}">
+  <view wx:for="{{companys}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}' class="more-item">
+    <template is="company" data="{{item}}"></template>
+  </view>
+</view>
