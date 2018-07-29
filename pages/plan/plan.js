@@ -36,6 +36,11 @@ Page({
         this.setData({
           planStudyList: res.data.list
         })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
       }
     }).catch(() => {
       wx.hideLoading()
@@ -51,7 +56,10 @@ Page({
   onLoad: function() {
     var that = this;
     that.gitPlanStudy();
-    console.log(app)
+    // console.log(app)
+    let a = 10
+    console.log((a << 4))
+    console.log(80 === (a << 3))
   },
 
   /**

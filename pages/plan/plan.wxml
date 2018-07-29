@@ -21,7 +21,6 @@
            <text class="planStudyProgress-title">已学习</text>
         </view>
         <view class="flex-item flex-text-center" wx:if="{{item.planStudyProgress === 0}}">
-           <!-- <view class="planStudyProgress">{{item.planStudyProgress}}</view> -->
            <view class="planStudyProgress-toStudy">去学习</view>
         </view>
       </view>

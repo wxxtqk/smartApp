@@ -17,15 +17,16 @@ export function plan_study_list() {
   })
 }
 // 教学计划课表详情列表
-export function planDetailsList() {
-  // let data= {
-  //   planId: planId
-  // }
+export function planDetailsList(id) {
+  let data= {
+    courseIds: id
+  }
   // console.log(data)
   return fetch({
-    url: `${host}/detailsList`,
-    method: 'POST'
-    // data
+    // url: `${host}/detailsList`,
+    url: 'http://192.168.199.99:8181/jeesite/a/plan/course',
+    method: 'POST',
+    data
   })
 }
 // 文章内容展示列表
