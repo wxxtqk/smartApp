@@ -1,5 +1,5 @@
 
-/* @import "../../../wxParse/wxParse.wxss"; */
+ /* @import "../../../wxParse/wxParse.wxss"; */
  @import "../../../component/curriculum/curriculum.wxss"; 
 .article-package {
   position: fixed;

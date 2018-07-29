@@ -29,12 +29,15 @@
 }
 .flex-wrp {
   display: flex; 
-  justify-content: space-between; 
+  /* justify-content: space-between;  */
 }
 /* .flex-item{
    justify-content: space-between; 
    flex: 1; 
 } */
+.flex1 {
+  flex: 1;
+}
 .curriculum-package {
   padding: 24rpx 22rpx;
 }
@@ -57,10 +60,10 @@
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjUwOUZDQzE2ODU3NjExRThCMDMyRkM1QkY1MzI2RTdFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjUwOUZDQzE3ODU3NjExRThCMDMyRkM1QkY1MzI2RTdFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTA5RkNDMTQ4NTc2MTFFOEIwMzJGQzVCRjUzMjZFN0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTA5RkNDMTU4NTc2MTFFOEIwMzJGQzVCRjUzMjZFN0UiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5dbtA1AAABBUlEQVR42mJkYGBgAmILIFYFYnYGwuAnEN8G4hPMQMISiHWAmIWBOABSJwaylAlqIzlAk4lIp2ID7EwMFACcmmVkZNgfP35c8uHDh+aQkBBJkjQHBwfLAg1Q5efnF4uLizMgSfN/IIDHzc+ff4jWzMXFhSLOxMTESLTmc+fOpR8/fvz1r1+/voH4/f39p1evXu2Crg5kYhq64IULFxI5gaCtrW2zgIAAu7e3tw4QaEhJSXUQ1AwCp06diuHh4eEG2v6bm5ubKzk5eemhQ4feE6UZBA4cOBCioqKiDAz1TmzyIM3xZKayn6CMwQ1N6KSCqyDNT4GYDYj5icxZoCx5AxQsAAEGAKuyRNoN//KXAAAAAElFTkSuQmCC)
 }
 .curriculum-title {
-  max-width: 364rpx;
+  /* max-width: 364rpx; */
   font-size:32rpx;
   display:block;
-  width: 400rpx;
+  max-width: 400rpx;
   /* max-height:80rpx; */
   /* overflow:scroll; */
 }
@@ -97,5 +100,18 @@
   display:block;
   padding-top: 20rpx;
   text-align: center;
+}
+/* 判断学习进度为0时样式 */
+.planStudyProgress-toStudy {
+  color:rgb(73,159,228);
+  border:4rpx solid rgb(73,159,228);
+  border-radius:12rpx;
+  padding:10rpx;
+  font-size:28rpx;
+}
+/*对齐方式： X轴对齐  */
+.flex-text-center {
+  display:flex;
+  align-items:center;
 }
 /* 2rpx = 1px  */

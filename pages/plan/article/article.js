@@ -56,8 +56,8 @@ Page({
           proposal: res.data.proposal,
           collectionType: res.data.collectionType
         })
+        wxparse.wxParse('coursesContent', 'html', this.data.curriculum.curriculumContent, this, 24); // 解析html标签
       }
-      wxparse.wxParse('curriculumContent', 'html', this.data.curriculum.curriculumContent, this, 24); // 解析html标签
     })
     .catch(() => {
       wx.hideLoading()
