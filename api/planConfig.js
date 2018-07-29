@@ -5,17 +5,15 @@
 import fetch from '../utils/fetch.js'
 
 var host = "https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159"
-// 教学计划列表
-export function plan_study_list(data) {
+// 获取所有教学计划列表
+export function plan_study_list() {
   // let data = {
   //   openId: id
   // }
-  let url = `${host}/studyPlanList`
-  // let url = 'https://134.175.27.67/jeesite-master/a/plan/list'
   return fetch({
-    url,
-    method: 'POST',
-    data
+    url: 'http://192.168.199.99:8181/jeesite/a/plan/list',
+    // url: `${host}/studyPlanList`,
+    method: 'POST'
   })
 }
 // 教学计划课表详情列表

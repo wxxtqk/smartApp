@@ -26,9 +26,9 @@ Page({
       title: '加载中',
       mask: true
     })
-    const userid = 123456
+    // const userid = 123456
     // plan_study_list().then(res => {
-    plan_study_list(userid).then(res => {
+    plan_study_list().then(res => {
       wx.hideLoading()
       res = res.data
       console.info(res)
