@@ -56,7 +56,7 @@
 .curriculum-title{
   font-size: 32rpx;
   padding-left:20rpx;
-  width:374rpx;
+  /* width:374rpx; */
 }
 .curriculum-people{
   color:rgb(141,141,141);

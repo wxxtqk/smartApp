@@ -46,7 +46,7 @@ Page({
     } else if (e.detail.value.email == '') {
       wran = '请输入邮箱'
     } else if (!(/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(e.detail.value.email))) {
-      wran = '有些格式不正确'
+      wran = '邮箱格式不正确'
     } else {
       flag = false
       personalInfo(e.detail.value).then(res => {

@@ -20,11 +20,11 @@ Page({
     })
     fetchRecord().then(res => {
       res = res.data
+      wx.hideLoading()
       if (res.state === OK_CODE) {
         this.setData({
           lists: res.data
         })
-        wx.hideLoading()
       }
     }).catch(() => {
       wx.showModal({

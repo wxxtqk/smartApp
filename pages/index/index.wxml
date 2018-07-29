@@ -13,7 +13,7 @@
   <!-- 导航栏 -->
   <view class="home-nav">
     <view class="home-nav-item" bindtap="detail" wx:for="{{types}}">
-      <image src="{{item.img}}" class="home-nav-icon" />
+      <image src="{{item.url}}" class="home-nav-icon" />
       <view class="home-nav-text">{{item.name}}</view>
     </view>
   </view>
@@ -21,7 +21,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">最热课程</view>
-      <view class="content-h-r">查看更多>></view>
+      <view class="content-h-r" bindtap="showmore" data-more="3">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -34,7 +34,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">推荐课程 </view>
-      <view class="content-h-r">查看更多>></view>
+      <view class="content-h-r" bindtap="showmore" data-more="2">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -51,7 +51,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">免费专区</view>
-      <view class="content-h-r">查看更多>></view>
+      <view class="content-h-r"  bindtap="showmore" data-more="1">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
@@ -64,7 +64,7 @@
   <view class="content-wraper">
     <view class="content-header">
       <view class="content-h-l">企业风采展示</view>
-      <view class="content-h-r">查看更多>></view>
+      <view class="content-h-r"  bindtap="showmore" data-company="1">查看更多>></view>
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">

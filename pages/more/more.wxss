@@ -1,0 +1,16 @@
+@import '../../component/curriculum/curriculum.wxss';
+@import '../../component/company/company.wxss';
+page{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(243, 243, 243);
+}
+.more-item{
+    margin-top: 10rpx;
+    padding: 0 30rpx;
+    border-bottom: 1px solid #dddddd
+}
+image{
+    width: 100%;
+    height: 100%;
+}

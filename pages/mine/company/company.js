@@ -1,4 +1,4 @@
-import { fetchProd, addCompany } from '../../../api/mine.js'
+import { fetchProd, addCompany, deletProd, addProd, fetchCompany, fetchProdSingle} from '../../../api/mine.js'
 const OK_CODE = '200'
 var app = getApp()
 Page({
@@ -17,20 +17,23 @@ Page({
     email: '', // 邮箱
     address: '', // 地址
     prodShow: false, // 现在产品修改新增
+    isEdit: false, // 是否新增或者修改
     price: '',
     prodname: '',
     proddesc: '',
     prodImgs: [],
     prodtel: '',
     prodemail: '',
-    prodaddress: ''
+    prodaddress: '',
+    companyId: '', // 公司的id信息
+    prodId: '',// 要修改的产品id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this._fetchCompany()
   },
   /**
    * 切换table
@@ -46,13 +49,49 @@ Page({
       this._fetchProd()
     }
   },
+  // 初始化获取我的企业
+  _fetchCompany() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    let that = this
+    fetchCompany().then(res => {
+      wx.hideLoading()
+      res = res.data
+      if (res.state === OK_CODE) {
+        that.setData({
+          imgUrl: res.data.imgUrl, // 企业图片
+          name: res.data.name,
+          desc: res.data.desc, // 企业简介
+          coll: res.data.coll, // 合作伙伴
+          tel: res.data.tel, // 联系电话
+          email: res.data.email, // 邮箱
+          address: res.data.address, // 地址
+          companyId: res.data.id
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
+      }
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    })
+  },
+  // 获取我的企业
   _fetchProd() {
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     let that = this
-    fetchProd().then(res => {
+    fetchProd(that.data.companyId).then(res => {
       res = res.data
       wx.hideLoading()
       if (res.state === OK_CODE) {
@@ -61,7 +100,7 @@ Page({
         })
       }
     }).catch((e) => {
-      console.log(e)
+      wx.hideLoading()
       wx.showModal({
         title: '提示',
         content: '链接数据库失败'
@@ -156,6 +195,7 @@ Page({
         })
       }
     }).catch(() => {
+      wx.hideLoading()
       wx.showModal({
         title: '提示',
         content: '链接数据库失败'
@@ -181,17 +221,64 @@ Page({
   // 点击修改
   modfiy(e) {
     this.setData({
-      prodShow: true
+      isEdit: true,
+      prodId: e.currentTarget.dataset.prod
+    })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    let that = this
+    fetchProdSingle({id:this.data.prodId}).then(res => {
+      wx.hideLoading()
+      res = res.data
+      if (res.state === OK_CODE) {
+        that.setData({
+          price: res.data.price,
+          prodname: res.data.prodname,
+          proddesc: res.data.proddesc,
+          prodImgs: res.data.prodImgs,
+          prodtel: res.data.prodtel,
+          prodemail: res.data.prodemail,
+          prodaddress: res.data.prodaddress,
+          prodShow: true
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
+      }
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '连接数据库失败'
+      })
     })
   },
   // 点击删除
-  del(e) { 
+  del(e) {
+    let that = this
     wx.showModal({
       title: '提示',
       content: '是否删除',
       success: function(res) {
         if (res.confirm) {
-          console.log('用户删除')
+          deletProd({id: e.currentTarget.dataset.prod}).then(res => {
+            res = res.data
+            if (res.state === OK_CODE) {
+              wx.showToast({
+                title: '添加成功',
+              })
+              that._fetchProd()
+            }
+          }).catch(() => {
+            wx.showModal({
+              title: '提示',
+              content: '链接数据库失败'
+            })
+          })
         } else {
           console.log('用户取消')
         }
@@ -201,10 +288,55 @@ Page({
   // 修改和新增企业产品
   prodSubmit(e) {
     let from = e.detail.value
-    let target = {}
+    let target = {companyId: this.data.companyId}
     let url = {urls: this.data.prodImgs}
-    Object.assign(target, from, url)
-    console.log(target)
+    // 如果是新增
+    if (!this.data.isEdit){
+      Object.assign(target, from, url)
+    } else {
+      let prodId = {
+        id: this.data.prodId
+      }
+      Object.assign(target, from, url, prodId)
+    }
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    let that = this
+    addProd(target).then(res => {
+      res = res.data
+      wx.hideLoading()
+      if (res.state === OK_CODE) {
+        wx.showToast({
+          title: '添加成功',
+        })
+        // 添加企业产品input
+        that.setData({
+          price: '',
+          prodname: '',
+          proddesc: '',
+          prodImgs: [],
+          prodtel: '',
+          prodemail: '',
+          prodaddress: '',
+          active: '2',
+          prodShow: false
+        })
+        that._fetchProd()
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
+      }
+   }).catch(() => {
+    wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    })
   },
   // 取消企业产品相关
   cancel(){
@@ -216,7 +348,8 @@ Page({
   // 新增企业产品
   addProd() {
     this.setData({
-      prodShow: true
+      prodShow: true,
+      isEdit: false
     })
   }
 })

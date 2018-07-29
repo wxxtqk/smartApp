@@ -48,7 +48,8 @@ Page({
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
-        that.setData(that.data.s3_width = res.windowWidth / 3);
+        // that.setData(that.data.s3_width = res.windowWidth / 3);
+        that.setData({s3_width: res.windowWidth / 3});
       },
     })
   },

@@ -15,7 +15,7 @@
     <view class="personal-header personal-wrapper">
       <view class="personal-item">
         <view class="personal-item-l">姓名</view>
-        <input class="personal-item-r" name="name" placeholder="请输入姓名" bindinput="name"/>
+        <input class="personal-item-r" name="name" placeholder="请输入姓名" value="{{name}}"/>
       </view>
       <view class="personal-item">
         <view class="personal-item-l">出生日期</view>
@@ -25,26 +25,26 @@
       </view>
       <view class="personal-item">
         <view class="personal-item-l">学历</view>
-        <input class="personal-item-r" name="edu" placeholder="请输入学历" bindinput="edu" />
+        <input class="personal-item-r" name="edu" placeholder="请输入学历" value="{{edu}}" />
       </view>
       <view class="personal-item" >
         <view class="personal-item-l">手机号</view>
-        <input class="personal-item-r" name="phone" placeholder="请输入手机号" bindinput="phone"/>
+        <input class="personal-item-r" name="phone" placeholder="请输入手机号" value="{{phone}}"/>
       </view>
 
 
 
       <view class="personal-item">
         <view class="personal-item-l">所在企业</view>
-        <input class="personal-item-r" name="company" placeholder="请输入企业" bindinput="company"/>
+        <input class="personal-item-r" name="company" placeholder="请输入企业" value="{{company}}"/>
       </view>
       <view class="personal-item">
         <view class="personal-item-l">联系邮箱</view>
-        <input class="personal-item-r" name="email" placeholder="请输入邮箱" bindinput="email"/>
+        <input class="personal-item-r" name="email" placeholder="请输入邮箱" value="{{email}}"/>
       </view>
       <view class="personal-item" style="border:none">
         <view class="personal-item-l">联系地址</view>
-        <input class="personal-item-r" name="address" placeholder="请输入联系地址" bindinput="address"/>
+        <input class="personal-item-r" name="address" placeholder="请输入联系地址" value="{{address}}"/>
       </view>
 
     </view>
