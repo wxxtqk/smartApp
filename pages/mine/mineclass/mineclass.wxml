@@ -1,6 +1,9 @@
 <scroll-view class="favorite-container" scroll-y>
   <view class="favorite-list" wx:for="{{lists}}">
-    <image class="favorite-img"  src="{{item.url}}"></image> 
+    <view class="img-wrapper">
+      <image class="favorite-img"  src="{{item.url}}"></image>
+      <view class="voice"></view>
+    </view>
     <view class="favorite-item">
       <view class="favorite-desc">{{item.title}}</view>
       <view class="favorite-name">{{item.teacher}}</view>

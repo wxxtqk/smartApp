@@ -3,7 +3,7 @@
     <view class="demon-wrapper">
       <view class="demon-img">
         <image src="{{item.url}}" />
-        <view class="voice"></view>
+        <view class="voice" wx:if="{{item.state==='1'}}"></view>
       </view>
       <view class="demon-content">
         <view class="demon-title">{{item.title}}</view>

@@ -19,14 +19,15 @@ Page({
       mask: true
     })
     fetchFavorite().then(res => {
+      wx.hideLoading()
       res = res.data
       if (res.state === OK_CODE) {
         this.setData({
           lists: res.data
         })
-        wx.hideLoading()
       }
     }).catch(() => {
+      wx.hideLoading()
       wx.showModal({
         title: '提示',
         content: '链接数据库失败'

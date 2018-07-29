@@ -13,7 +13,7 @@
   <!-- 导航栏 -->
   <view class="home-nav">
     <view class="home-nav-item" bindtap="detail" wx:for="{{types}}">
-      <image src="{{item.img}}" class="home-nav-icon" />
+      <image src="{{item.url}}" class="home-nav-icon" />
       <view class="home-nav-text">{{item.name}}</view>
     </view>
   </view>

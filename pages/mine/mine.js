@@ -13,9 +13,17 @@ Page({
   // 跳转到不同的页面
   toPage: function(event) {
     let url = event.currentTarget.dataset.page
-    wx.navigateTo({
-      url
-    })
+    // 用户登录后才可以跳转查看
+    if (app.globalData.userInfo) {
+      wx.navigateTo({
+        url
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

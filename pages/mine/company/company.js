@@ -1,4 +1,4 @@
-import { fetchProd, addCompany } from '../../../api/mine.js'
+import { fetchProd, addCompany, deletProd, addProd} from '../../../api/mine.js'
 const OK_CODE = '200'
 var app = getApp()
 Page({
@@ -185,13 +185,27 @@ Page({
     })
   },
   // 点击删除
-  del(e) { 
+  del(e) {
+    let that = this
     wx.showModal({
       title: '提示',
       content: '是否删除',
       success: function(res) {
         if (res.confirm) {
-          console.log('用户删除')
+          deletProd().then(res => {
+            res = res.data
+            if (res.state === OK_CODE) {
+              wx.showToast({
+                title: '添加成功',
+              })
+              that._fetchProd()
+            }
+          }).catch(() => {
+            wx.showModal({
+              title: '提示',
+              content: '链接数据库失败'
+            })
+          })
         } else {
           console.log('用户取消')
         }
@@ -204,7 +218,40 @@ Page({
     let target = {}
     let url = {urls: this.data.prodImgs}
     Object.assign(target, from, url)
-    console.log(target)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    let that = this
+    addProd(target).then(res => {
+      res = res.data
+      wx.hideLoading()
+      if (res.state === OK_CODE) {
+        wx.showToast({
+          title: '添加成功',
+        })
+        // 添加成功制空
+        that.setData({
+          price: '',
+          prodname: '',
+          proddesc: '',
+          prodImgs: [],
+          prodtel: '',
+          prodemail: '',
+          prodaddress: ''
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
+      }
+   }).catch(() => {
+      wx.showModal({
+        title: '提示',
+        content: '链接数据库失败'
+      })
+    })
   },
   // 取消企业产品相关
   cancel(){
