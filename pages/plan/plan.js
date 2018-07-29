@@ -38,6 +38,11 @@ Page({
         this.setData({
           planStudyList: res.data.list
         })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
       }
     }).catch(() => {
       wx.hideLoading()

@@ -9,6 +9,7 @@ Page({
   data: {
     studyList: {},
     detailsList: [], // 课程详情列表
+    courseIds: '', // 上一页传过来得课程id
     unreadSrc: '../../../imgs/studystate.png',
     readSrc: '../../../imgs/studystate_active.png'
   },
@@ -36,12 +37,12 @@ Page({
     let voiceurl = event.currentTarget.dataset.pagetwo
     let articleList = event.currentTarget.dataset.article
     let topageType = event.currentTarget.dataset.article.type
-    // // // 跳转页面传值
-    if (topageType === 1) {
+    // // // 跳转页面传值 0==文章，1==音频
+    if (topageType === '0') {
       wx.navigateTo({
         url: articleurl + '?articleList=' + JSON.stringify(articleList)
       })
-    } else if (topageType === 2) {
+    } else if (topageType === '1') {
       wx.navigateTo({
         url: voiceurl + '?articleList=' + JSON.stringify(articleList)
       })
@@ -49,18 +50,17 @@ Page({
   },
   // 获取课程详情列表
   _gitDetailsList: function () {
-    // console.log(this.data.studyList.planId)
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    planDetailsList().then(res => {
+    planDetailsList(this.data.courseIds).then(res => {
       wx.hideLoading()
       res = res.data
       console.log(res)
       if ( res.state === SUCCESS_OK ) {
         this.setData({
-          detailsList: res.data.detailsList
+          detailsList: res.data.list
         })
         console.info(this.data.detailsList)
       }
@@ -79,9 +79,11 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      studyList: JSON.parse(options.details)
+      studyList: JSON.parse(options.details),
+      courseIds: JSON.parse(options.details).courseIds
     })
-    console.log(this.data.studyList)
+    // console.log(this.data.studyList)
+    // console.log(this.data)
     // console.log(JSON.parse(options.details))
     this.studyDetailsTitle()
     this._gitDetailsList()
