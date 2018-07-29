@@ -68,7 +68,7 @@
     </view>
     <!-- 主体内容 -->
     <view class="content-lists">
-      <view wx:for="{{company}}" wx:key="*this" bindtap='showCompany'>
+      <view wx:for="{{company}}" wx:key="*this" bindtap='showCompany' data-details='{{item}}'>
         <template is="company" data="{{item}}"></template>
       </view>
     </view>
