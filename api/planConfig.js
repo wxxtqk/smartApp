@@ -11,8 +11,8 @@ export function plan_study_list() {
   //   openId: id
   // }
   return fetch({
-    // url: 'http://192.168.199.99:8181/jeesite/a/plan/list',
-    url: `${host}/studyPlanList`,
+    url: 'http://192.168.199.99:8181/jeesite/a/plan/list',
+    // url: `${host}/studyPlanList`,
     method: 'POST'
   })
 }

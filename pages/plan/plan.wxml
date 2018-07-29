@@ -6,8 +6,9 @@
       <view class="curriculum-package flex-wrp" data-page="planStudy/planStudy" data-details="{{item}}" bindtap="topage">
         <!-- 1111 -->
         <!-- {{item}} -->
-         <view class="flex-item">
-          <image class="curriculum-image" src="{{item.planImage}}" mode="cover"></image>
+         <view class="flex-item" style="position: relative;">
+          <image class="curriculum-image" src="{{item.planImage}}" mode="aspectFill" style="height: 100%"></image>
+          <view class="voice" wx:if="{{item.state==='1'}}"></view>
         </view>
         <view class="flex-item curriculum-title-package">
           <scroll-view class="scroll-view_H" scroll-y style="height:90rpx; margin-bottom:26rpx;">
@@ -21,5 +22,5 @@
         </view>
       </view>
     </view>
-  </view>            
+  </view>
 </view>
