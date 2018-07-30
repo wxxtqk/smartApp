@@ -13,6 +13,7 @@ Page({
     curriculum: {}, // 文章内容
     proposal: [], //推荐课程
     collectionType: false, // 待收藏文章
+    courseType: 0, // 图文类型
 
     authorSrc: '../../../imgs/author.png',
     lickSrc: '../../../imgs/like.png',
@@ -25,9 +26,11 @@ Page({
   // 修改微信标题
   articleListTitle: function () {
     var that = this;
-    // console.log(that.data.studyList)
+    console.log(that.data)
+    console.log(that.data.curriculum)
+    console.log(that.data.curriculum.proposalTitle)
     wx.setNavigationBarTitle({
-      title: that.data.articleList.subjectTitle
+      title: that.data.curriculum.proposalTitle
     })
   },
 
@@ -40,13 +43,13 @@ Page({
   },
 
   // 文章内容获取
-  _curriculumList: function () {
-    let id = this.data.articleList.subjectId
+  _curriculumList: function (id) {
+    // let id = this.data.articleList.subjectId
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    curriculumList(id).then(res => {
+    curriculumList(id, this.data.courseType).then(res => {
       wx.hideLoading()
       res = res.data
       console.log(res)
@@ -58,6 +61,7 @@ Page({
         })
         // wxparse.wxParse('coursesContent', 'html', this.data.curriculum.curriculumContent, this, 24); // 解析html标签
         wxparse.wxParse('coursesContent', 'html', res.data.curriculumList.curriculumContent, this, 24); // 解析html标签
+        this.articleListTitle()
       }
     })
     .catch(() => {
@@ -106,14 +110,15 @@ Page({
   collectionclick: function(event) {
     console.log(event)
       console.log(!this.data.collectionType)
+    console.log(this.data.curriculum.courseId)
       
-      Collection(!this.data.collectionType).then(res => {
+    Collection(this.data.curriculum.courseId).then(res => {
       res = res.data
       if(res.state === SUCCESS_OK){
         this.setData({
           collectionType: !this.data.collectionType
         })
-        if (this.data.collectionType === false){
+        if (res.data.state === '0'){
           wx.showToast({
             title: '取消收藏',
             icon: 'succes',
@@ -149,7 +154,6 @@ Page({
     //   // articleTitle: this.data.articleList.articleTitle
     // })
     // console.log(this.data.articleList)
-    // this.articleListTitle()
     // this.articleTitleNmae()
     this._curriculumList(id)
 

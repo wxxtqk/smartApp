@@ -1,4 +1,4 @@
-import { voiceList, voiceCollection } from '../../../api/planConfig.js'
+import { voiceList, voiceCollection, curriculumList } from '../../../api/planConfig.js'
 import { formatTimeNew } from '../../../utils/formatDate.js'
 const app = getApp()
 let backgroundAudioManager = wx.getBackgroundAudioManager();
@@ -19,6 +19,7 @@ Page({
     collectionType: '', // 收藏状态
     curriculum: {}, // 文章内容
     proposal: [], //推荐课程
+    courseType: 1, // 图文类型
 
     questionObj:{
       id: 0,
@@ -55,7 +56,7 @@ Page({
     var that = this;
     // console.log(that.data.studyList)
     wx.setNavigationBarTitle({
-      title: that.data.articleList.subjectTitle
+      title: that.data.voiceTitle
     })
   },
 
@@ -231,12 +232,12 @@ Page({
 
 
   // 接口获取音频课程展示列表
-  _voiceList:function(){
+  _voiceList:function(id){
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    voiceList().then(res => {
+    curriculumList(id, this.data.courseType).then(res => {
       res = res.data
       console.log(res)
       if(res.state === SUCCESS_OK){
@@ -260,6 +261,7 @@ Page({
           audioListObj: _obj
         })
         wxparse.wxParse('curriculumContent', 'html', this.data.curriculum, this, 24); // 解析html标签
+        this.articleListTitle()
       } else {
         wx.hideLoading()
         wx.showModal({

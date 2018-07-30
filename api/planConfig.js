@@ -30,28 +30,28 @@ export function planDetailsList(id) {
   })
 }
 // 文章内容展示列表
-export function curriculumList(id) {
-  let data = {
-    subjectId: id
-  }
-  return fetch({
-    url: `${host}/curriculumList`,
-    method: 'POST',
-    data
-  })
-}
-// 文章收藏
-export function Collection(typeState) {
-  let url = `${host}/Collection`
-  let data= {
-    collectionType: typeState
-  }
-  return fetch({
-    url,
-    method: 'POST',
-    data
-  })
-}
+// export function curriculumList(id) {
+//   let data = {
+//     subjectId: id
+//   }
+//   return fetch({
+//     url: `${host}/curriculumList`,
+//     method: 'POST',
+//     data
+//   })
+// }
+// // 文章收藏
+// export function Collection(typeState) {
+//   let url = `${host}/Collection`
+//   let data= {
+//     collectionType: typeState
+//   }
+//   return fetch({
+//     url,
+//     method: 'POST',
+//     data
+//   })
+// }
 // 音频课程显示列表
 export function voiceList() {
   let url = `${host}/voiceList`
@@ -69,6 +69,31 @@ export function voiceCollection(typeState) {
   }
   return fetch({
     url,
+    method: 'POST',
+    data
+  })
+}
+// 文章与音频显示内容接口
+export function curriculumList(id, Type) {
+  let data = {
+    courseId: id,
+    courseType: Type
+  }
+  return fetch({
+    // url: `${host}/curriculumList`,
+    url: 'http://192.168.199.99:8181/jeesite/a/plan/courseView',
+    method: 'POST',
+    data
+  })
+}
+// 文章收藏 与 音频收藏
+export function Collection(id) {
+  // let url = `${host}/Collection`
+  let data= {
+    courseId: id
+  }
+  return fetch({
+    url: 'http://192.168.199.98:8080/jeesite/a/usercourse/collect',
     method: 'POST',
     data
   })
