@@ -22,4 +22,6 @@
 .company-desc{
   flex: 1;
   color:rgb(184,184,184);
+  overflow: hidden;
+  font-size: 28rpx;
 }

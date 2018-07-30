@@ -6,9 +6,17 @@ Page({
     companys: []
   },
   onLoad: function (options) {
-    console.log(options)
     if (options.more) {
-      this._fetchMore(options.more)
+      let type = options.more
+      let req = {}
+      if (type === '3') {
+        req.isHot = '1'
+      } else if (type === '2') {
+        req.isRecom = '1'
+      } else if (type === '1') {
+        req.isFree = '0'
+      }
+      this._fetchMore(req)
     } else {
       this._fetchMoreCompany()
     }

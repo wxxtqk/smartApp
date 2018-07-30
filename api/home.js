@@ -8,34 +8,39 @@ export function fetchHome() {
   })
 }
 // 点击大类进入小类
-export function fecthMinClass() {
+export function fecthMinClass(data) {
   let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/deatil'
   return fetch({
     url,
-    method: 'POST'
+    method: 'POST',
+    data
   })
 }
 // 获取企业
-export function fectDemon() {
-  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/demon'
+export function fectDemon(data) {
+  let url = 'http://192.168.199.98:8080/jeesite/a/company/showcompany'
   return fetch({
     url,
-    method: 'POST'
+    method: 'POST',
+    data
   })
 }
 // 点击查看更多
-export function fetchMore() {
-  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/show/more'
+export function fetchMore(data) {
+  let url = 'http://192.168.199.98:8080/jeesite/a/course/more'
   return fetch({
     url,
-    method: 'POST'
+    method: 'POST',
+    data
   })
 }
 // 点击查看更多企业
 export function fetchMoreCompany() {
-  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/more/company'
+  let data = Object.freeze({isDisplay: 1}) // 冻结一个对象
+  let url = 'http://192.168.199.98:8080/jeesite/a/company/showall'
   return fetch({
     url,
-    method: 'POST'
+    method: 'POST',
+    data
   })
 }

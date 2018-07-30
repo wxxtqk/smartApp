@@ -17,8 +17,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this._fectDemon()
+  onLoad: function ({id}) {
+    this._fectDemon(id)
   },
   change(e) {
     let index = e.currentTarget.dataset.index
@@ -27,13 +27,13 @@ Page({
     })
   },
   // 获取跟多数据
-  _fectDemon() {
+  _fectDemon(companyId) {
     let that = this
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    fectDemon().then(res => {
+    fectDemon({companyId}).then(res => {
       wx.hideLoading()
       res = res.data
       if (res.state === OK_CODE) {
