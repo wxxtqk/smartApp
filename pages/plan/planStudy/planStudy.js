@@ -37,14 +37,15 @@ Page({
     let voiceurl = event.currentTarget.dataset.pagetwo
     let articleList = event.currentTarget.dataset.article
     let topageType = event.currentTarget.dataset.article.type
+    let id = event.currentTarget.dataset.article.subjectId
     // // // 跳转页面传值 0==文章，1==音频
     if (topageType === '0') {
       wx.navigateTo({
-        url: articleurl + '?articleList=' + JSON.stringify(articleList)
+        url: `${articleurl}?id=${id}`
       })
     } else if (topageType === '1') {
       wx.navigateTo({
-        url: voiceurl + '?articleList=' + JSON.stringify(articleList)
+        url: `${voiceurl}?id=${id}`
       })
     }
   },

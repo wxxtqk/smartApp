@@ -57,6 +57,8 @@
   font-size: 32rpx;
   padding-left:20rpx;
   /* width:374rpx; */
+  max-width:374rpx;
+  flex:1;
 }
 .curriculum-people{
   color:rgb(141,141,141);
@@ -66,7 +68,7 @@
 }
 /*价格  */
 .price {
-  width: 100rpx;
+  max-width: 100rpx;
   color: rgb(73,159,228);
   font-size: 32rpx;
 }
