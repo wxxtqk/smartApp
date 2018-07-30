@@ -10,7 +10,7 @@
 <view class="swiper-wrapper">
     <swiper bindchange='get_index' current="{{c_index}}">
       <swiper-item wx:for="{{tabLists}}">
-          <view wx:for="{{item.data}}">
+          <view wx:for="{{item.data}}" data-details='{{item}}' bindtap='toDetail'>
             <template is="curriculum" data="{{item}}"></template>
           </view>
       </swiper-item>

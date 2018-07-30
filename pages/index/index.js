@@ -58,9 +58,10 @@ Page({
     })
   },
   // 显示公司页面
-  showCompany() {
+  showCompany(e) {
+    let id = e.currentTarget.dataset.details.id
     wx.navigateTo({
-      url: '../../pages/index/company/company'
+      url: `../../pages/index/company/company?id=${id}`
     })
   },
   // 进入详情

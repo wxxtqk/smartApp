@@ -70,5 +70,33 @@ Page({
         content: '连接数据库失败'
       })
     })
+  },
+  // 进入详情
+  toDetail(e) {
+    let isBuy = e.currentTarget.dataset.details.isBuy
+    let state =e.currentTarget.dataset.details.state
+    let id = e.currentTarget.dataset.details.id
+    if(isBuy === '0') {
+      wx.navigateTo({
+        url: `../../pages/plan/purchase/purchase?id=${id}`
+      })
+    } else {
+      if (state === '0') {
+        wx.navigateTo({
+          url: `../../pages/plan/article/article?id=${id}`
+        })
+      } else {
+        wx.navigateTo({
+          url: `../../pages/plan/articleVoice/voice?id=${id}`
+        })
+      }
+    }
+  },
+  // 显示公司页面
+  showCompany(e) {
+    let id = e.currentTarget.dataset.details.id
+    wx.navigateTo({
+      url: `../../pages/index/company/company?id=${id}`
+    })
   }
 })
