@@ -52,9 +52,10 @@ Page({
     })
   },
   // 进入详情页面
-  detail() {
+  detail(e) {
+    let parentId=e.currentTarget.dataset.parentid
     wx.navigateTo({
-      url: '../../pages/detail/detail'
+      url: `../../pages/detail/detail?parentId=${parentId}`
     })
   },
   // 显示公司页面

@@ -54,13 +54,13 @@ Page({
     })
   },
   // 获取数据
-  _fecthMinClass() {
+  _fecthMinClass(cls) {
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     let that = this
-    fecthMinClass().then(res => {
+    fecthMinClass(cls).then(res => {
       wx.hideLoading()
       res = res.data
       if (res.state === OK_CODE) {
@@ -81,8 +81,9 @@ Page({
       })
     })
   },
-  onLoad() {
-    this._fecthMinClass()
+  onLoad({parentId}) {
+    let cls = {parentId}
+    this._fecthMinClass(cls)
   },
   // 进入详情
   toDetail(e) {
