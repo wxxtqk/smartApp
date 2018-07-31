@@ -117,3 +117,4 @@ export function fetchProdSingle(data) {
         data
     })
 }
+export const upload = 'http://192.168.199.99:8181/jeesite/a/resources/save'

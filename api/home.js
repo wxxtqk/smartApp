@@ -9,7 +9,7 @@ export function fetchHome() {
 }
 // 点击大类进入小类
 export function fecthMinClass(data) {
-  let url = 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/deatil'
+  let url = 'http://192.168.199.99:8181/jeesite/a/classify/fistList'
   return fetch({
     url,
     method: 'POST',
