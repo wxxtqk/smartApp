@@ -34,7 +34,7 @@
 //   formatTimeNew: formatTimeNew
 // }
 
-function formatTime(time){
+export function formatTimeNew(time){
   if(typeof time !== 'number' || time < 0){
     return time
   }
@@ -49,7 +49,4 @@ function formatTime(time){
     return n[1] ? n : '0' + n
   }).join(':')
 }
-
-module.exports = {
-  formatTimeNew: formatTime
-}
+// console.log(formatTime(206))

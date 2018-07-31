@@ -17,9 +17,12 @@ Page({
     console.log(event)
     let url = event.currentTarget.dataset.page
     let studyDetails = event.currentTarget.dataset.details
+    let courseId = event.currentTarget.dataset.details.courseIds
+    console.info(courseId)
     // 页面跳转传值
     wx.navigateTo({
-      url: url + '?details=' + JSON.stringify(studyDetails)
+      // url: url + '?details=' + JSON.stringify(studyDetails)
+      url: `${url}?id=${courseId}`
     })
   },
   // 请求学习课程列表的接口
