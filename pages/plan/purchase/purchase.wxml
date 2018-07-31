@@ -10,10 +10,10 @@
             </view>
           </view>
           <view class="purchase-people">
-            <view class='flex-center'>主讲人: {{Referee}}</view>
+            <view class='flex-center'>主讲人: ￥{{Referee}}</view>
             <view class='flex-center'>
               <view class='discount'>
-                <view class='flex-center'>折扣价: {{discount}}</view>
+                <view class='flex-center'>折扣价: ￥{{discount}}</view>
                 <view class='flex-center positive-price'>平日价: {{positivePrice}}</view>
               </view>
             </view>

@@ -1,4 +1,4 @@
-import { voiceList, voiceCollection, curriculumList } from '../../../api/planConfig.js'
+import { voiceList, voiceCollection, curriculumList, Collection } from '../../../api/planConfig.js'
 import { formatTimeNew } from '../../../utils/formatDate.js'
 const app = getApp()
 let backgroundAudioManager = wx.getBackgroundAudioManager();
@@ -20,6 +20,7 @@ Page({
     curriculum: {}, // 文章内容
     proposal: [], //推荐课程
     courseType: 1, // 图文类型
+    courseId: '', // 课程id
 
     questionObj:{
       id: 0,
@@ -213,18 +214,22 @@ Page({
     let studyDetails = event.currentTarget.dataset.details
     let priceType = studyDetails.priceType // 付费类型 1付费 0免费
     // 传值id
-    let courseId = {
-      courseId: studyDetails.proposalId
-    }
+    // let courseId = {
+    //   courseId: studyDetails.proposalId
+    // }
+    let coursId = studyDetails.proposalId
+    console.info(coursId)
     // 页面跳转传值
-    if (priceType === 1 ){
+    if (priceType === '1' ){
       wx.navigateTo({
         // url: urlone + '?details=' + JSON.stringify(studyDetails)
-        url: urlone + '?details=' + JSON.stringify(courseId)
+        // url: urlone + '?details=' + JSON.stringify(courseId)
+        url: `${urlone}?id=${coursId}`
       })
-    } else if(priceType === 0) {
+    } else if(priceType === '0') {
       wx.navigateTo({
-        url: urlzero + '?details=' + JSON.stringify(studyDetails)
+        // url: urlzero + '?details=' + JSON.stringify(studyDetails)
+        url: `${urlzero}?id=${coursId}`
       })
 
     }
@@ -245,17 +250,18 @@ Page({
         let data = res.data
         const _data = this.data;
         const _obj = _data.audioListObj;
-        _obj[0].totalProcess = formatTimeNew(data.songLength); // 音频时长
+        _obj[0].totalProcess = formatTimeNew(parseInt(data.songLength)); // 音频时长
         _obj[0].src = data.audioSongSrc;  // 音频
         _obj[0].songLength = data.songLength; // 音频总时长 以秒为单位
         console.log(_obj[0].src)
         this.setData({
           voiceTitle: data.voiceTitle, // 标题
           voiceCoverimage: data.voiceCoverimage, // 封面
-          RefereePortrait: data.RefereePortrait, // 授课人头像
-          Referee: data.Referee, // 授课人
+          RefereePortrait: data.refereePortrait, // 授课人头像
+          Referee: data.referee, // 授课人
           studyNumber: data.studyNumber, // 学习次数
           collectionType: data.collectionType, // 收藏状态
+          courseId: data.courseId, // 课程id
           curriculum: data.curriculumContent,
           proposal: data.proposal,
           audioListObj: _obj
@@ -283,14 +289,15 @@ Page({
   collectionclick: function (event) {
     console.log(event)
     console.log(!this.data.collectionType)
+    console.log(this.data)
 
-    voiceCollection(!this.data.collectionType).then(res => {
+    Collection(this.data.courseId).then(res => {
       res = res.data
       if (res.state === SUCCESS_OK) {
         this.setData({
           collectionType: !this.data.collectionType
         })
-        if (this.data.collectionType === false) {
+        if (res.data.state === '0') {
           wx.showToast({
             title: '取消收藏',
             icon: 'succes',

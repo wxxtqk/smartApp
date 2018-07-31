@@ -7,7 +7,7 @@
       <view class="voice" wx:if="{{item.state==='1'}}"></view>
     </view>
     <view class='flex-item curriculum-title column'>
-       <view class='text-hidden'>{{item.proposalTitle}}</view> 
+       <view class='text-hidden'>{{item.proposalTitle}}</view>
       <view class="curriculum-people">{{item.Referee}}</view>
       <view class='curriculum-study flex-end flex-item'>{{item.studyNumber}}次学习</view>
     </view>

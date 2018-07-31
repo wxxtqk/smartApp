@@ -7,29 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    studyList: {},
     detailsList: [], // 课程详情列表
     courseIds: '', // 上一页传过来得课程id
     unreadSrc: '../../../imgs/studystate.png',
     readSrc: '../../../imgs/studystate_active.png'
   },
   // 事件处理
-  studyDetailsTitle: function(){
-    var that = this;
-    // console.log(that.data.studyList)
-    if (that.data.studyList.planTitle) {
-      console.log('1')
-      wx.setNavigationBarTitle({
-        title: that.data.studyList.planTitle
-      })
-    } else {
-      console.log('2')
-      wx.setNavigationBarTitle({
-        title: that.data.studyList.proposalTitle
-      })
-      
-    }
-  },
+
   // 跳转到其他页面
   topage: function(event) {
     console.info(event)
@@ -78,15 +62,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function ({id}) {
+    console.info(id)
     this.setData({
-      studyList: JSON.parse(options.details),
-      courseIds: JSON.parse(options.details).courseIds
+      courseIds: id
     })
-    // console.log(this.data.studyList)
-    // console.log(this.data)
-    // console.log(JSON.parse(options.details))
-    this.studyDetailsTitle()
     this._gitDetailsList()
   },
 
