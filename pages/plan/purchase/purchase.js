@@ -44,6 +44,7 @@ Page({
       title: '加载中',
       mask: true
     })
+    console.info(id)
     purchaseList(id).then(res => {
       res = res.data
       console.log(res)

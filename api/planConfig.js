@@ -99,11 +99,23 @@ export function Collection(id) {
   })
 }
 
+// // 购买课程显示列表
+// export function purchaseList() {
+//   let url = `${host}/purchaseList`
+//   return fetch({
+//     url,
+//     method: 'POST',
+//   })
+// }
 // 购买课程显示列表
-export function purchaseList() {
-  let url = `${host}/purchaseList`
+export function purchaseList(id) {
+  // let url = `${host}/Collection`
+  let data = {
+    id: id
+  }
   return fetch({
-    url,
+    url: 'http://192.168.199.98:8080/jeesite/a/course/showbuy',
     method: 'POST',
+    data
   })
 }
