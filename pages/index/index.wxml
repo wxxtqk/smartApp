@@ -39,8 +39,8 @@
     <!-- 主体内容 -->
     <view class="content-lists">
       <view class="recommend-wraper">
-        <scroll-view scroll-x="{{true}}" class="scroll-wraper"  bindtap='toDetail' data-details='{{item}}'>
-          <view class="recommend" wx:for="{{recommend}}" wx:key="*this">
+        <scroll-view scroll-x="{{true}}" class="scroll-wraper" >
+          <view class="recommend" wx:for="{{recommend}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}'>
             <template is="recommend" data="{{item}}"></template>
           </view>
         </scroll-view>
