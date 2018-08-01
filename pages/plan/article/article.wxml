@@ -35,7 +35,7 @@
             <!-- <view class="proposal-item" bindtap='itemclicktopage' data-item='{{item}}'>
               <template is="curriculum" data="{{item}}"></template>
             </view> -->
-            <view class="proposal-item" data-pageone="../purchase/purchase" data-pagezero="../planStudy/planStudy" bindtap='itemclicktopage' data-details='{{item}}'>
+            <view class="proposal-item" bindtap='itemclicktopage' data-details='{{item}}'>
                   <template is="curriculum" data="{{item}}"></template>
                 </view>
           </view> 

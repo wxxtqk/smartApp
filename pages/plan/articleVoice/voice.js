@@ -200,29 +200,32 @@ Page({
   // 推荐课程点击事件 跳转到其他页面
   itemclicktopage(event) {
     console.log(event)
-    let urlone = event.currentTarget.dataset.pageone
-    let urlzero = event.currentTarget.dataset.pagezero
+    // let urlone = event.currentTarget.dataset.pageone
+    // let urlzero = event.currentTarget.dataset.pagezero
     let studyDetails = event.currentTarget.dataset.details
-    let priceType = studyDetails.priceType // 付费类型 1付费 0免费
+    let state = studyDetails.state // 类型 1音频 0图文
+    let isBuy = event.currentTarget.dataset.details.buy // 0需购买 1已购买
     // 传值id
     // let courseId = {
     //   courseId: studyDetails.proposalId
     // }
-    let coursId = studyDetails.proposalId
-    console.info(coursId)
+    let id = studyDetails.proposalId
+    console.info(id)
     // 页面跳转传值
-    if (priceType === '1' ){
+    if(isBuy === '0') {
       wx.navigateTo({
-        // url: urlone + '?details=' + JSON.stringify(studyDetails)
-        // url: urlone + '?details=' + JSON.stringify(courseId)
-        url: `${urlone}?id=${coursId}`
+        url: `../purchase/purchase?id=${id}`
       })
-    } else if(priceType === '0') {
-      wx.navigateTo({
-        // url: urlzero + '?details=' + JSON.stringify(studyDetails)
-        url: `${urlzero}?id=${coursId}`
-      })
-
+    } else {
+      if (state === '0') {
+        wx.navigateTo({
+          url: `../article/article?id=${id}`
+        })
+      } else {
+        wx.navigateTo({
+          url: `../articleVoice/voice?id=${id}`
+        })
+      }
     }
   },
 
