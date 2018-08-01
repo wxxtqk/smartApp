@@ -1,4 +1,4 @@
-import { voiceList, voiceCollection, curriculumList, Collection } from '../../../api/planConfig.js'
+import { curriculumList, Collection } from '../../../api/planConfig.js'
 import { formatTimeNew } from '../../../utils/formatDate.js'
 const app = getApp()
 let backgroundAudioManager = wx.getBackgroundAudioManager();
@@ -196,15 +196,6 @@ Page({
   },
 
   // 跳转到其他页面
-  // topage: function (event) {
-  //   console.log(event)
-  //   let url = event.currentTarget.dataset.page
-  //   let studyDetails = event.currentTarget.dataset.details
-  //   // 页面跳转传值
-  //   wx.navigateTo({
-  //     url: url + '?details=' + JSON.stringify(studyDetails)
-  //   })
-  // },
 
   // 推荐课程点击事件 跳转到其他页面
   itemclicktopage(event) {
