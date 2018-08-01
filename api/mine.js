@@ -1,6 +1,7 @@
 import fetch from '../utils/fetch.js'
+import {$HTTP} from './config'
 // 设置个人资料
-export function personalInfo({name, date, edu, phone, company, email, address}) {
+export function personalInfo({name, date, edu, phone, company, email, address}, userNickname) {
     let data = {
         userName: name,
         userAddress: address,
@@ -8,9 +9,10 @@ export function personalInfo({name, date, edu, phone, company, email, address}) 
         userEducation: edu,
         userPhone: phone,
         userCompany: company,
-        userEmail: email
+        userEmail: email,
+        userNickname: userNickname
     }
-    let url = 'http://192.168.199.98:8080/jeesite/a/user/save'
+    let url = `${$HTTP}/jeesite/a/user/save`
     return fetch({
         url,
         method: 'POST',
@@ -20,28 +22,28 @@ export function personalInfo({name, date, edu, phone, company, email, address}) 
 // 获取我的收藏
 export function fetchFavorite() {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/course/collect',
+        url: `${$HTTP}/jeesite/a/course/collect`,
         method: 'POST'
     })
 }
 // 获取我的课程
 export function fetchClass() {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/course/buy',
+        url: `${$HTTP}/jeesite/a/course/buy`,
         method: 'POST'
     })
 }
 // 获取浏览记录
 export function fetchRecord() {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/course/look',
+        url: `${$HTTP}/jeesite/a/course/look`,
         method: 'POST'
     })
 }
 // 获取浏览记录
 export function fetchPayLog() {
     return fetch({
-        url: 'https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159/paylog',
+        url: `${$HTTP}/jeesite/a/course/look`,
         method: 'POST'
     })
 } 
@@ -51,7 +53,7 @@ export function fetchProd(companyId) {
         companyId
     }
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/goods/list',
+        url: `${$HTTP}/jeesite/a/goods/list`,
         method: 'POST',
         data
     })
@@ -59,7 +61,7 @@ export function fetchProd(companyId) {
 // 删除企业产品
 export function deletProd(data) {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/goods/delete',
+        url: `${$HTTP}/jeesite/a/goods/delete`,
         method: 'POST',
         data
     })
@@ -76,7 +78,7 @@ export function addCompany({name, address, coll, desc, email, tel, urls}) {
         companyInner:desc
     }
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/company/save',
+        url: `${$HTTP}/jeesite/a/company/save`,
         method: 'POST',
         data
     })
@@ -84,7 +86,7 @@ export function addCompany({name, address, coll, desc, email, tel, urls}) {
 // 获取企业
 export function fetchCompany() {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/company/usercompany',
+        url: `${$HTTP}/jeesite/a/company/usercompany`,
         method: 'POST'
     })
 }
@@ -104,7 +106,7 @@ export function addProd(config) {
         data.id = config.id
     }
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/goods/save',
+        url: `${$HTTP}/jeesite/a/goods/save`,
         method: 'POST',
         data
     })
@@ -112,8 +114,9 @@ export function addProd(config) {
 // 获取企业产品-------------用于修改
 export function fetchProdSingle(data) {
     return fetch({
-        url: 'http://192.168.199.98:8080/jeesite/a/goods/showgoods',
+        url: `${$HTTP}/jeesite/a/goods/showgoods`,
         method: 'POST',
         data
     })
 }
+export const upload = `${$HTTP}/jeesite/a/resources/save`

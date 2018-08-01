@@ -3,7 +3,8 @@ const OK_CODE = '200'
 Page({
   data: {
     lists: [],
-    companys: []
+    companys: [],
+    input: ''
   },
   onLoad: function (options) {
     if (options.more) {
@@ -18,7 +19,7 @@ Page({
       }
       this._fetchMore(req)
     } else {
-      this._fetchMoreCompany()
+      this._fetchMoreCompany('')
     }
   },
   // 获取跟多除开企业以为的
@@ -51,13 +52,13 @@ Page({
     })
   },
   // 获取更多企业
-  _fetchMoreCompany() {
+  _fetchMoreCompany(name) {
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     let that = this
-    fetchMoreCompany().then(res => {
+    fetchMoreCompany({companyName: name, isDisplay: 1}).then(res => {
       wx.hideLoading()
       res = res.data
       if (res.state === OK_CODE) {
@@ -105,6 +106,14 @@ Page({
     let id = e.currentTarget.dataset.details.id
     wx.navigateTo({
       url: `../../pages/index/company/company?id=${id}`
+    })
+  },
+  search(e) {
+    this._fetchMoreCompany(this.data.input)
+  },
+  setInput(e) {
+    this.setData({
+      input: e.detail.value
     })
   }
 })

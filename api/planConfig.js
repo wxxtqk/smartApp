@@ -3,7 +3,7 @@
  * 教学计划
  */
 import fetch from '../utils/fetch.js'
-
+import {$HTTP} from './config'
 var host = "https://dsn.apizza.net/mock/198f9600070e6d58394193f636384159"
 // 获取所有教学计划列表
 export function plan_study_list() {

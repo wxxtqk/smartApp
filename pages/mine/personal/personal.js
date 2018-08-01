@@ -33,6 +33,7 @@ Page({
     })
   },
   formSubmit: function(e) {
+    let that = this
     let wran = ''
     let flag = true // 判断输入是否完整
     if (e.detail.value.name == '') {
@@ -49,7 +50,7 @@ Page({
       wran = '邮箱格式不正确'
     } else {
       flag = false
-      personalInfo(e.detail.value).then(res => {
+      personalInfo(e.detail.value, that.data.userInfo.nickName).then(res => {
         res = res.data
         if (res.state === OK_CODE) {
           // 提示

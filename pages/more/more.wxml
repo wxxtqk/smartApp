@@ -5,7 +5,10 @@
     <template is="curriculum" data="{{item}}"></template>
   </view>
 </view>
-
+<view class="input-warpper" wx:if="{{companys.length>0}}" >
+  <input placeholder="请输入企业名称或者公司" name="input"  bindinput="setInput"/>
+  <text class="input-search" bindtap="search">搜索</text>
+</view>
 <view class="more-container" wx:if="{{companys.length>0}}">
   <view wx:for="{{companys}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}' class="more-item" bindtap='showCompany'>
     <template is="company" data="{{item}}"></template>

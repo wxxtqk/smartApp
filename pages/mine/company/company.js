@@ -1,4 +1,4 @@
-import { fetchProd, addCompany, deletProd, addProd, fetchCompany, fetchProdSingle} from '../../../api/mine.js'
+import { fetchProd, addCompany, deletProd, addProd, fetchCompany, fetchProdSingle, upload} from '../../../api/mine.js'
 const OK_CODE = '200'
 var app = getApp()
 Page({
@@ -155,7 +155,7 @@ Page({
   uploadimg (data, cb) {
     let pics = data
     return app.uploadimg({
-      url: 'http://192.168.199.99:8181/jeesite/a/resources/save', // 上传的地址
+      url: upload, // 上传的地址
       path: pics // 图片的路径
     }, cb)
   },
