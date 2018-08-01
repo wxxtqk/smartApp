@@ -77,7 +77,7 @@ Page({
       content: '请拨打电话联系客服 130-xxxx-xxxx',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          console.log('用户点击确定') 
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
