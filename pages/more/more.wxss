@@ -14,3 +14,14 @@ image{
     width: 100%;
     height: 100%;
 }
+.input-warpper{
+    display: flex;
+    padding: 5rpx 30rpx;
+}
+.input-warpper text{
+    background-color:rgb(82, 162, 233);
+    padding: 0 15rpx;
+}
+.input-warpper input{
+    flex: 1
+}
