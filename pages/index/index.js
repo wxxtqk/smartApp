@@ -72,7 +72,7 @@ Page({
     let id = e.currentTarget.dataset.details.id
     if(isBuy === '0') {
       wx.navigateTo({
-        url: `../../pages/plan/purchase/purchase?id=${id}`
+        url: `../../pages/plan/purchase/purchase?id=${id}` 
       })
     } else {
       if (state === '0') {
