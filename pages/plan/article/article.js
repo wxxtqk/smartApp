@@ -43,13 +43,13 @@ Page({
   },
 
   // 文章内容获取
-  _curriculumList: function (id) {
+  _curriculumList: function (id, planid) {
     // let id = this.data.articleList.subjectId
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    curriculumList(id, this.data.courseType).then(res => {
+    curriculumList(id, this.data.courseType, planid).then(res => {
       wx.hideLoading()
       res = res.data
       console.log(res)
@@ -176,14 +176,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({id}) {
+  onLoad: function ({id, planid}) {
     // this.setData({
     //   articleList: JSON.parse(options.articleList),
     //   // articleTitle: this.data.articleList.articleTitle
     // })
     // console.log(this.data.articleList)
     // this.articleTitleNmae()
-    this._curriculumList(id)
+    this._curriculumList(id, planid)
 
   },
 

@@ -231,12 +231,12 @@ Page({
 
 
   // 接口获取音频课程展示列表
-  _voiceList:function(id){
+  _voiceList:function(id, planid){
     wx.showLoading({
       title: '加载中',
       mask: true
     })
-    curriculumList(id, this.data.courseType).then(res => {
+    curriculumList(id, this.data.courseType, planid).then(res => {
       res = res.data
       console.log(res)
       if(res.state === SUCCESS_OK){
@@ -322,14 +322,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({id}) {
+  onLoad: function ({id, planid}) {
     // this.setData({
     //   articleList: JSON.parse(options.articleList),
     //   // articleTitle: this.data.articleList.articleTitle
     // })
     // console.log(this.data.articleList)
     // this.articleListTitle()
-    this._voiceList(id)
+    this._voiceList(id, planid)
 
   },
 

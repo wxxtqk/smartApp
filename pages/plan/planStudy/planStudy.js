@@ -10,7 +10,8 @@ Page({
     detailsList: [], // 课程详情列表
     courseIds: '', // 上一页传过来得课程id
     unreadSrc: '../../../imgs/studystate.png',
-    readSrc: '../../../imgs/studystate_active.png'
+    readSrc: '../../../imgs/studystate_active.png',
+    planid: ''
   },
   // 事件处理
 
@@ -25,11 +26,11 @@ Page({
     // // // 跳转页面传值 0==文章，1==音频
     if (topageType === '0') {
       wx.navigateTo({
-        url: `${articleurl}?id=${id}`
+        url: `${articleurl}?id=${id}&planid=${this.data.planid}`
       })
     } else if (topageType === '1') {
       wx.navigateTo({
-        url: `${voiceurl}?id=${id}`
+        url: `${voiceurl}?id=${id}&planid=${this.data.planid}`
       })
     }
   },
@@ -39,7 +40,7 @@ Page({
       title: '加载中',
       mask: true
     })
-    planDetailsList(this.data.courseIds).then(res => {
+    planDetailsList(this.data.courseIds, this.data.planid).then(res => {
       wx.hideLoading()
       res = res.data
       console.log(res)
@@ -62,10 +63,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({id}) {
-    console.info(id)
+  onLoad: function ({id, planid}) {
     this.setData({
-      courseIds: id
+      courseIds: id,
+      planid
     })
     this._gitDetailsList()
   },

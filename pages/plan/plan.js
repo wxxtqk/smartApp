@@ -14,15 +14,14 @@ Page({
   },
   // 跳转到其他页面
   topage: function (event) {
-    console.log(event)
     let url = event.currentTarget.dataset.page
     let studyDetails = event.currentTarget.dataset.details
     let courseId = event.currentTarget.dataset.details.courseIds
-    console.info(courseId)
+    let planid = event.currentTarget.dataset.details.planId
     // 页面跳转传值
     wx.navigateTo({
       // url: url + '?details=' + JSON.stringify(studyDetails)
-      url: `${url}?id=${courseId}`
+      url: `${url}?id=${courseId}&planid=${planid}`
     })
   },
   // 请求学习课程列表的接口

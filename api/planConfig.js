@@ -12,9 +12,10 @@ export function plan_study_list() {
   })
 }
 // 教学计划课表详情列表
-export function planDetailsList(id) {
+export function planDetailsList(id, planId) {
   let data= {
-    courseIds: id
+    courseIds: id,
+    planId
   }
   // console.log(data)
   return fetch({
@@ -25,10 +26,13 @@ export function planDetailsList(id) {
 }
 
 // 文章与音频显示内容接口
-export function curriculumList(id, Type) {
+export function curriculumList(id, Type, planId) {
   let data = {
     courseId: id,
     courseType: Type
+  }
+  if (planId) {
+    data.planId = planId
   }
   return fetch({
     url: `${$HTTP}/jeesite/a/plan/courseView`,
