@@ -73,35 +73,7 @@ Page({
     }) 
   },
   // // 推荐课程点击事件
-  // itemclick(event){
-  //   // templates.onclick(evevt)
-  //   console.log(event)
-  // },
-  // // onclick: function (event) {
-  // //   console.log("点击了" + event.currentTarget.dataset.item)
-  // // },
   // 推荐课程点击事件 跳转到其他页面
-  // itemclicktopage(event) {
-  //   console.log(event)
-  //   let urlone = event.currentTarget.dataset.pageone
-  //   let urlzero = event.currentTarget.dataset.pagezero
-  //   let studyDetails = event.currentTarget.dataset.details
-  //   let priceType = studyDetails.priceType // 付费类型 1付费 0免费
-  //   // 传值课程id
-  //   let coursId = studyDetails.proposalId
-  //   console.info(coursId)
-  //   // 页面跳转传值
-  //   if (priceType === '1') {
-  //     wx.navigateTo({
-  //       url: `${urlone}?id=${coursId}`
-  //     })
-  //   } else if (priceType === '0') {
-  //     wx.navigateTo({
-  //       url: `${urlzero}?id=${coursId}`
-  //     })
-
-  //   }
-  // },
   itemclicktopage(event) {
     console.log(event)
     // let urlone = event.currentTarget.dataset.pageone
