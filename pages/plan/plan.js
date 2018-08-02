@@ -58,7 +58,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onShow: function () {
     var that = this;
     // 用户登录后才可以跳转查看
     if (app.globalData.userInfo) {

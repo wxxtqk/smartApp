@@ -13,10 +13,6 @@ Page({
     interval: 5000,
     duration: 500
   },
-  onLoad:function(options){
-    // 生命周期函数--监听页面加载
-    this._fetchHome()
-  },
   // 获取首页全部数据
   _fetchHome() {
     let that = this
@@ -96,5 +92,9 @@ Page({
     wx.navigateTo({
       url: `../../pages/more/more?company=1`
     })
-  }
+  },
+  onShow:function(){
+      // 生命周期函数--监听页面显示
+      this._fetchHome()
+    },
 })
