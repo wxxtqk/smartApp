@@ -88,10 +88,11 @@ Page({
       wx.navigateTo({
         url: `../../pages/more/more?more=${e.currentTarget.dataset.more}`
       })
+    } else {
+      wx.navigateTo({
+        url: `../../pages/more/more?company=1`
+      })
     }
-    wx.navigateTo({
-      url: `../../pages/more/more?company=1`
-    })
   },
   onShow:function(){
       // 生命周期函数--监听页面显示
