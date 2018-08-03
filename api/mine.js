@@ -43,7 +43,7 @@ export function fetchRecord() {
 // 获取浏览记录
 export function fetchPayLog() {
     return fetch({
-        url: `${$HTTP}/jeesite/a/course/look`,
+        url: `${$HTTP}/jeesite/a/course/myorder`,
         method: 'POST'
     })
 } 
