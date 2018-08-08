@@ -8,8 +8,8 @@
             <view class='reader-line' hidden='{{index==detailsList.length-1?true:false}}'><text></text></view>
           </view>
           <view class="day-time-package">
-            <view>{{detail.subjectDay}}</view>
-            <view class='read-time'>{{detail.subjectTime}}</view>
+            <view wx:if="{{detail.subjectDay}}">{{detail.subjectDay}}</view>
+            <view class='read-time'>{{detail.subjectTime?detail.subjectTime:'未学习'}}</view>
           </view>
         </view>
         <view class='plan-title'>

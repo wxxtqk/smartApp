@@ -50,8 +50,9 @@ Page({
   // 进入详情页面
   detail(e) {
     let parentId=e.currentTarget.dataset.parentid
+    let name=e.currentTarget.dataset.name
     wx.navigateTo({
-      url: `../../pages/detail/detail?parentId=${parentId}`
+      url: `../../pages/detail/detail?parentId=${parentId}&name=${name}`
     })
   },
   // 显示公司页面

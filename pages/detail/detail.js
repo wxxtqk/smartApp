@@ -7,15 +7,7 @@ Page({
     t_width: 250,//上方每个tab的大小
     scroll_left: 0,//上方滚动的位置
     t_margin_left: 0,//上方的margin-left
-    tabLists: [],
-    tab_tite_data: [
-      { "name": "1", "color": "orange", }
-      , { "name": "2", "color": "blue", }
-      // , { "name": "3", "color": "green", }
-      // , { "name": "4", "color": "yellow", }
-      // , { "name": "5", "color": "black", }
-      // , { "name": "6", "color": "pink", }
-    ],
+    tabLists: []
   },
   onShow: function () {
     this.getwidth();
@@ -81,8 +73,11 @@ Page({
       })
     })
   },
-  onLoad({parentId}) {
+  onLoad({parentId, name}) {
     let cls = {parentId}
+    wx.setNavigationBarTitle({
+      title: name
+    })
     this._fecthMinClass(cls)
   },
   // 进入详情
