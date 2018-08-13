@@ -50,8 +50,9 @@ Page({
   // 进入详情页面
   detail(e) {
     let parentId=e.currentTarget.dataset.parentid
+    let name=e.currentTarget.dataset.name
     wx.navigateTo({
-      url: `../../pages/detail/detail?parentId=${parentId}`
+      url: `../../pages/detail/detail?parentId=${parentId}&name=${name}`
     })
   },
   // 显示公司页面
@@ -88,10 +89,11 @@ Page({
       wx.navigateTo({
         url: `../../pages/more/more?more=${e.currentTarget.dataset.more}`
       })
+    } else {
+      wx.navigateTo({
+        url: `../../pages/more/more?company=1`
+      })
     }
-    wx.navigateTo({
-      url: `../../pages/more/more?company=1`
-    })
   },
   onShow:function(){
       // 生命周期函数--监听页面显示

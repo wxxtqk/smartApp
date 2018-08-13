@@ -1,8 +1,8 @@
 <view class="favorite-container">
-  <view class="favorite-list" wx:for="{{lists}}">
+  <view class="favorite-list" wx:for="{{lists}}" bindtap='toDetail' data-details='{{item}}'>
     <view class="img-wrapper">
-      <image class="favorite-img"  src="{{item.url}}"></image>
-      <view class="voice"></view>
+      <image class="favorite-img" src="{{item.url}}"></image>
+      <view class="voice" wx:if="{{item.state==='1'}}"></view>
     </view>
     <view class="favorite-item">
       <view class="favorite-desc">{{item.title}}</view>

@@ -19,7 +19,7 @@
       </view>
       <view class="personal-item">
         <view class="personal-item-l">出生日期</view>
-        <picker class="personal-item-r" name="date" mode="date" value='{{date}}' start="2015-09-01" end="2017-09-01" bindchange="bindPickerChange">
+        <picker class="personal-item-r" name="date" mode="date" value='{{date}}' start="1950-09-01" end="2050-09-01" bindchange="bindPickerChange">
           <view>{{date}}</view>
         </picker>
       </view>
