@@ -67,7 +67,7 @@
           </view>
         </view>
         <view class="prod-bottom">
-          <view class="prod-pay">价格: ￥{{item.price}}</view>
+          <view class="prod-pay">价格: ￥ {{item.price}}</view>
           <view class="prod-btns">
             <view class="prod-btn prod-del" bindtap="del" data-prod="{{item.id}}">删除</view>
             <view class="prod-btn prod-modfiy" bindtap="modfiy" data-prod="{{item.id}}">修改</view>
@@ -84,14 +84,14 @@
     <form bindsubmit="prodSubmit">
       <view class="info-item-h">
         <view class="info-h">产品名称</view>
-        <input name="prodname" placeholder="请填写企业名称" class="info-text"  value="{{prodname}}" />
+        <input name="prodname" placeholder="请填写产品名称" class="info-text"  value="{{prodname}}" />
       </view>
       <view class="info-item-v">
         <view class="info-v">产品简介</view>
-        <textarea name="proddesc" placeholder="请简单描述您的企业" class="info-v-text" value="{{proddesc}}" maxlength="30"></textarea>
+        <textarea name="proddesc" placeholder="请简单描述您的企业产品" class="info-v-text" value="{{proddesc}}" maxlength="30"></textarea>
       </view>
       <view class="info-item-v">
-        <view class="info-v">企业图片(仅限3张)</view>
+        <view class="info-v">企业产品图片(仅限3张)</view>
         <view placeholder="请简单描述您的企业" class="info-v-text info-img" name="prodImgs">
           <view class="info-img-list" wx:for="{{prodImgs}}">
             <image src="{{item}}" mode="cover"/>
