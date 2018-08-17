@@ -1,4 +1,5 @@
 //app.js
+import {$HTTP} from './api/config'
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -13,6 +14,7 @@ App({
         let that = this
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
+          // url: `${$HTTP}/jeesite/a/wechat/user/logina?code=${code}`,
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxa7e430f8985ea255&secret=944dce150e7f0ee447a7b0df26ac892f&js_code=' + code + '&grant_type=authorization_code',
           data: {},
           header: {
