@@ -13,7 +13,7 @@ page{
     flex-direction: column;
     padding: 0 20rpx;
     box-sizing: border-box;
-    height: 100%;
+    /* height: 100%; */
     overflow-y: auto;
 }
 .favorite-list{
