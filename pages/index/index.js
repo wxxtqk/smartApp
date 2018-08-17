@@ -36,7 +36,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: res.message
+          content: 'res.message'
         })
       }
     }).catch((e) => {

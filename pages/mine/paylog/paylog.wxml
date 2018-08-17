@@ -1,5 +1,5 @@
 <scroll-view class="favorite-container" scroll-y>
-  <view class="favorite-list" wx:for="{{lists}}">
+  <view class="favorite-list" wx:for="{{lists}}" bindtap='toDetail' data-details='{{item}}'>
     <view class="favorite-item">
       <view class="favorite-desc">{{item.title}}</view>
       <view class="favorite-date">{{item.time}}</view>
