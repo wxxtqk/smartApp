@@ -23,5 +23,7 @@ image{
     padding: 0 15rpx;
 }
 .input-warpper input{
-    flex: 1
+    flex: 1;
+    border: 1px solid darkblue;
+    padding-left: 10rpx;
 }
