@@ -1,12 +1,12 @@
 <import src="../../component/curriculum/curriculum.wxml" />
 <import src="../../component/company/company.wxml" />
-<view class="more-container"  wx:if="{{lists.length>0}}">
+<view class="more-container"  wx:if="{{marker}}">
   <view wx:for="{{lists}}" wx:key="*this" bindtap='toDetail' data-details='{{item}}' class="more-item"  bindtap='toDetail'>
     <template is="curriculum" data="{{item}}"></template>
   </view>
 </view>
-<view class="input-warpper" wx:if="{{companys.length>0}}" >
-  <input placeholder="请输入企业名称或者公司" name="input"  bindinput="setInput"/>
+<view class="input-warpper" wx:else >
+  <input placeholder="请输入产品名称" name="input"  bindinput="setInput"/>
   <text class="input-search" bindtap="search">搜索</text>
 </view>
 <view class="more-container" wx:if="{{companys.length>0}}">

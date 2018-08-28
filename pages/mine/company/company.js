@@ -161,11 +161,13 @@ Page({
   },
   // 提交表单---------------企业信息
   formSubmit(e) {
-    console.log(e)
+    console.log(this.data)
     let from = e.detail.value
     let target = {}
     let url = {urls: this.data.imgUrl}
-    Object.assign(target, from, url)
+    let companyId = {id: this.data.companyId}
+    Object.assign(target, from, url, companyId)
+    console.log(target)
     wx.showLoading({
       title: '加载中',
       mask: true

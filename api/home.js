@@ -37,7 +37,7 @@ export function fetchMore(data) {
 }
 // 点击查看更多企业
 export function fetchMoreCompany(data) {
-  let url = `${$HTTP}/jeesite/a/company/showall`
+  let url = `${$HTTP}/jeesite/a/company/more`
   return fetch({
     url,
     method: 'POST',

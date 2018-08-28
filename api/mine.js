@@ -67,7 +67,7 @@ export function deletProd(data) {
     })
 }
 // 我的企业提交
-export function addCompany({name, address, coll, desc, email, tel, urls}) {
+export function addCompany({name, address, coll, desc, email, tel, urls, id}) {
     let data = {
         companyName: name,
         companyAddress: address,
@@ -75,7 +75,8 @@ export function addCompany({name, address, coll, desc, email, tel, urls}) {
         companyPartner: coll,
         companyPhone: tel,
         companyEmail: email,
-        companyInner:desc
+        companyInner:desc,
+        id: id
     }
     return fetch({
         url: `${$HTTP}/jeesite/a/company/save`,
@@ -119,4 +120,12 @@ export function fetchProdSingle(data) {
         data
     })
 }
+// 获取用户信息-------------回显
+export function fetchUserInfo() {
+    return fetch({
+        url: `${$HTTP}/jeesite/a/user/getuser`,
+        method: 'POST'
+    })
+}
+
 export const upload = `${$HTTP}/jeesite/a/resources/save`

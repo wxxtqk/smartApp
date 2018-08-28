@@ -1,5 +1,5 @@
 const app = getApp()
-import { personalInfo } from '../../../api/mine.js'
+import { personalInfo, fetchUserInfo } from '../../../api/mine.js'
 const OK_CODE = '200'
 Page({
 
@@ -26,6 +26,7 @@ Page({
       // 设置用户信息
       userInfo: app.globalData.userInfo
     })
+    this._fetch()
   },
   bindPickerChange: function (e) {
     this.setData({
@@ -76,5 +77,39 @@ Page({
         content: wran
       })
     }
+  },
+  // 获取用户的信息
+  _fetch: function() {
+    wx.showLoading({
+      title: '加载中....',
+      mask: true
+    })
+    fetchUserInfo().then(res => {
+      res = res.data
+      wx.hideLoading()
+      if (res.state === OK_CODE) {
+        // 执行回显
+        this.setData({
+          name: res.data.userName,
+          date: res.data.userBirthday === '' ? '2017-08-06' : res.data.userBirthday ,
+          edu: res.data.userEducation,
+          phone: res.data.userPhone,
+          company: res.data.userCompany,
+          email: res.data.userEmail,
+          address: res.data.userAddress,
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message
+        })
+      }
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showModal({
+        title: '提示',
+        content: '连接数据库失败'
+      })
+    })
   }
 })

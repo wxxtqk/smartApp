@@ -4,7 +4,8 @@ Page({
   data: {
     lists: [],
     companys: [],
-    input: ''
+    input: '',
+    marker: true
   },
   onLoad: function (options) {
     if (options.more) {
@@ -18,8 +19,14 @@ Page({
         req.isFree = '0'
       }
       this._fetchMore(req)
+      this.setData({
+        marker: true
+      })
     } else {
       this._fetchMoreCompany('')
+      this.setData({
+        marker: false
+      })
     }
   },
   // 获取跟多除开企业以为的

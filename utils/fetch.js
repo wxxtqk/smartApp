@@ -1,6 +1,5 @@
 const app = getApp()
 function fetch({url, data = {}, method = 'POST'}) {
-  console.log(app)
   return new Promise((resolve, reject) => {
     wx.request({
       url,
