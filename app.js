@@ -6,28 +6,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res)
-        let code = res.code
-        let that = this
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          url: `${$HTTP}/jeesite/a/wechat/user/logina?code=${code}`,
-          // url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxa7e430f8985ea255&secret=944dce150e7f0ee447a7b0df26ac892f&js_code=' + code + '&grant_type=authorization_code',
-          data: {},
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            // openid = res.data.openid //返回openid
-            that.globalData.userOpen = res.data
-          }
-        })
-      }
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -42,6 +20,30 @@ App({
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
+                  // 登录
+                  wx.login({
+                    success: res => {
+                      console.log(res)
+                      let code = res.code
+                      let that = this
+                      let {nickName} = that.globalData.userInfo
+                      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                      wx.request({
+                        url: `${$HTTP}/jeesite/a/wechat/user/logina?code=${code}`,
+                        // url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxa7e430f8985ea255&secret=944dce150e7f0ee447a7b0df26ac892f&js_code=' + code + '&grant_type=authorization_code',
+                        data: {
+                          nickName
+                        },
+                        header: {
+                          'content-type': 'application/json'
+                        },
+                        success: function (res) {
+                          // openid = res.data.openid //返回openid
+                          that.globalData.userOpen = res.data
+                        }
+                      })
+                    }
+                  })
               }
             }
           })
